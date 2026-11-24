@@ -188,6 +188,17 @@ export class DeviceCards {
 }
 
 // ---------------------------------------------------------------- diagnosis
+// Suggested fixes start collapsed. Findings are re-rendered every few seconds, so
+// which ones the user opened is remembered here.
+const openFixes = new Set();
+function fixHint(f) {
+  const key = `${f.cause}|${f.title}`;
+  const el = h('details.fix', h('summary', 'What to try'), h('p', f.fix));
+  el.open = openFixes.has(key);
+  el.addEventListener('toggle', () => { if (el.open) openFixes.add(key); else openFixes.delete(key); });
+  return el;
+}
+
 export function renderFindings(root, findings, { nameOf, waiting, incidentCount }) {
   root.replaceChildren();
   if (!findings || !findings.length) {
@@ -218,7 +229,7 @@ export function renderFindings(root, findings, { nameOf, waiting, incidentCount 
           h('span.conf-num', `${Math.round(score * 100)} % · ${level} confidence`)),
         f.incident_count ? h('span.count', `${f.incident_count} incident${f.incident_count === 1 ? '' : 's'}`) : null),
       f.detail ? h('p.detail', f.detail) : null,
-      f.fix ? h('p.fix', h('strong', 'Try: '), f.fix) : null,
+      f.fix ? fixHint(f) : null,
       chips.length ? h('p.affected', h('span.affected-label', 'Affects'), chips) : null));
   });
 }

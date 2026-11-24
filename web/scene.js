@@ -32,7 +32,7 @@ export class RoomView {
     this.devices = new Map();
     this.bases = new Map();
     this.labels = [];             // {el, pos: Vector3 | () => Vector3, visible: () => bool}
-    this.layers = { heatmap: true, fov: true, trails: true, incidents: true, range: true };
+    this.layers = { heatmap: false, fov: true, trails: true, incidents: true, range: true };
     this.slice = [0, 10];
     this.heat = null;
     this.gridHalf = 0;

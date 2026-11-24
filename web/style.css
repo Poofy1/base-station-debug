@@ -462,3 +462,14 @@ body.is-stopped .timeline-panel { outline: 2px solid #ff6b6b; outline-offset: -2
 /* ------------------------------------------------------------ play area */
 .room-label.play { background: none; border: 0; color: #35d0b0; font-size: 0.8125rem; font-weight: 600; padding: 0; }
 .base-count { display: none; }
+
+/* ------------------------------------------- collapsible "what to try" */
+details.fix { padding: 0; }
+details.fix > summary { cursor: pointer; padding: 6px 12px; font-weight: 700; color: #9ec5f4; list-style-position: inside; }
+details.fix > p { padding: 0 12px 10px; }
+
+/* "what to try" is plain text, not a box */
+details.fix { margin-top: 6px; background: none; border: 0; border-radius: 0; padding: 0; font-size: 0.9rem; }
+details.fix > summary { padding: 0; font-weight: 500; color: var(--ink-3); }
+details.fix > summary:hover { color: var(--ink-2); }
+details.fix > p { padding: 3px 0 0; color: var(--ink-2); }

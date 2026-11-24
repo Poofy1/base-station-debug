@@ -50,7 +50,7 @@
       </div>
       <div class="toggles" role="group" aria-label="View options">
         <button type="button" class="toggle" id="btn-top" aria-pressed="false" title="Top-down orthographic view">Top-down</button>
-        <button type="button" class="toggle" data-layer="heatmap" aria-pressed="true">Heatmap</button>
+        <button type="button" class="toggle" data-layer="heatmap" aria-pressed="false">Heatmap</button>
         <button type="button" class="toggle" data-layer="fov" aria-pressed="true">Base FOV</button>
         <button type="button" class="toggle" data-layer="trails" aria-pressed="true">Trails</button>
         <button type="button" class="toggle" data-layer="range" aria-pressed="true" title="Lines from each device to its nearest base station, with the distance. Pick a device to see all its bases.">Range</button>
@@ -60,7 +60,7 @@
     </div>
     <div class="room-body">
       <div class="room-view" id="room-view"></div>
-      <div class="legend" id="legend" hidden>
+      <div class="legend is-off" id="legend" hidden>
         <p class="legend-title" id="legend-title"></p>
         <div class="legend-scale">
           <span id="legend-min"></span>
