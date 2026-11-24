@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>lhdebug - Lighthouse tracking</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>lhdebug</h1>
+    <span class="brand-sub">Lighthouse tracking diagnosis</span>
+  </div>
+  <div class="status-row" aria-live="polite">
+    <span class="pill" id="mode-pill" data-mode="unknown" title="Session mode">&hellip;</span>
+    <span class="pill" id="steamvr-pill" data-on="unknown" title="Whether SteamVR is running and connected">SteamVR &hellip;</span>
+    <span class="pill" id="conn-pill" data-conn="connecting" title="Connection to the lhdebug service">Connecting&hellip;</span>
+  </div>
+  <div class="session-info" id="session-info"></div>
+</header>
+
+<main class="layout">
+  <section class="panel room-panel" id="room-panel" aria-label="3D room">
+    <div class="toolbar">
+      <label class="field">Heatmap
+        <select id="metric">
+          <option value="dropout">Dropout</option>
+          <option value="jitter">Jitter</option>
+          <option value="jumps">Jumps</option>
+          <option value="update_rate">Update rate</option>
+          <option value="samples">Samples</option>
+          <option value="coverage">Coverage (predicted)</option>
+        </select>
+      </label>
+      <label class="field">Device
+        <select id="heat-device"><option value="">All devices</option></select>
+      </label>
+      <div class="field slice" role="group" aria-label="Height slice">
+        <span>Height <output id="slice-out">all</output></span>
+        <span class="slice-inputs">
+          <input type="range" id="slice-lo" min="0" max="3" step="0.2" value="0" aria-label="Slice from height (m)">
+          <input type="range" id="slice-hi" min="0" max="3" step="0.2" value="3" aria-label="Slice to height (m)">
+        </span>
+      </div>
+      <div class="toggles" role="group" aria-label="View options">
+        <button type="button" class="toggle" id="btn-top" aria-pressed="false" title="Top-down orthographic view">Top-down</button>
+        <button type="button" class="toggle" data-layer="heatmap" aria-pressed="true">Heatmap</button>
+        <button type="button" class="toggle" data-layer="fov" aria-pressed="true">Base FOV</button>
+        <button type="button" class="toggle" data-layer="trails" aria-pressed="true">Trails</button>
+        <button type="button" class="toggle" data-layer="incidents" aria-pressed="true">Incidents</button>
+        <button type="button" class="btn" id="btn-reset" title="Reset the camera">Reset view</button>
+      </div>
+    </div>
+    <div class="room-body">
+      <div class="room-view" id="room-view"></div>
+      <div class="legend" id="legend" hidden>
+        <p class="legend-title" id="legend-title"></p>
+        <div class="legend-scale">
+          <span id="legend-min"></span>
+          <span class="legend-bar" id="legend-bar"></span>
+          <span id="legend-max"></span>
+        </div>
+        <p class="legend-note" id="legend-note"></p>
+      </div>
+      <div class="state-key" aria-label="Device colour key">
+        <span class="state" data-state="ok"><span class="icon">&#9679;</span>OK</span>
+        <span class="state" data-state="degraded"><span class="icon">&#9650;</span>Degraded</span>
+        <span class="state" data-state="lost"><span class="icon">&#10006;</span>Lost</span>
+        <span class="state" data-state="disconnected"><span class="icon">&#9675;</span>Disconnected</span>
+      </div>
+      <aside class="incident-detail" id="incident-detail" hidden aria-label="Incident detail"></aside>
+      <div class="overlay" id="overlay" hidden>
+        <div class="overlay-box">
+          <div class="spinner" aria-hidden="true"></div>
+          <h2 id="overlay-title"></h2>
+          <p id="overlay-text"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel diag-panel" aria-label="Diagnosis">
+    <div class="panel-head">
+      <h2>Diagnosis</h2>
+      <span class="panel-note" id="diag-note">What is wrong, most likely first</span>
+    </div>
+    <div class="findings" id="findings"></div>
+  </section>
+
+  <section class="devices-panel" aria-label="Devices">
+    <div class="devices" id="devices"></div>
+  </section>
+
+  <section class="panel timeline-panel" aria-label="Timeline">
+    <div class="panel-head">
+      <h2>Timeline</h2>
+      <div class="tl-key" aria-label="Timeline key">
+        <span><i class="key-mark k-loss"></i>Tracking lost</span>
+        <span><i class="key-mark k-quality"></i>Quality (jump, jitter, stale)</span>
+        <span><i class="key-mark k-geometry"></i>Room geometry</span>
+        <span><i class="key-mark k-log"></i>Log event</span>
+      </div>
+      <label class="field inline">Window
+        <select id="tl-window">
+          <option value="60">1 min</option>
+          <option value="300" selected>5 min</option>
+          <option value="900">15 min</option>
+          <option value="3600">1 hour</option>
+        </select>
+      </label>
+    </div>
+    <div class="timeline" id="timeline"></div>
+    <p class="panel-foot">Click an incident to see its evidence and where it happened. Scroll with Shift or Ctrl to zoom.</p>
+  </section>
+
+  <section class="panel log-panel" aria-label="Driver log">
+    <div class="panel-head">
+      <h2>Driver log</h2>
+      <label class="field inline">Device <select id="log-device"><option value="*">All devices</option></select></label>
+      <label class="field inline">Kind <select id="log-kind"><option value="*">All kinds</option></select></label>
+    </div>
+    <ul class="log" id="log"></ul>
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

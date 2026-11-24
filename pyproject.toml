@@ -1,0 +1,28 @@
+[project]
+name = "lhdebug"
+version = "0.1.0"
+description = "Background tracking diagnostics for SteamVR Lighthouse (Base Station 2.0) setups"
+requires-python = ">=3.11"
+dependencies = [
+    "openvr>=2.0",
+    "numpy",
+    "fastapi",
+    "uvicorn",
+    "websockets",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+lhdebug = "lhdebug.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["lhdebug", "lhdebug.sources"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

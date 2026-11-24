@@ -1,0 +1,676 @@
+Mon Nov 23 2026 20:00:05.182 [Info] - //==============================================================================================
+Mon Nov 23 2026 20:00:05.182 [Info] - ================================================================================================
+Mon Nov 23 2026 20:00:05.182 [Info] - vrserver 2.18.4 startup with PID=30980, config=C:\Program Files (x86)\Steam\config, runtime=C:\Program Files (x86)\Steam\steamapps\common\SteamVR, arch=win64
+Mon Nov 23 2026 20:00:05.182 [Info] - [vrserver] watchdogs enabled
+Mon Nov 23 2026 20:00:05.184 [Info] - CSharedResourceNamespaceServer starting up
+Mon Nov 23 2026 20:00:05.184 [Info] - WaitNamedPipe SteamVR_Namespace failed because no one is listening at that name.
+Mon Nov 23 2026 20:00:05.184 [Error] - CSharedResourceNamespaceClient::Init(): failed connect
+Mon Nov 23 2026 20:00:05.184 [Warning] - CSharedResourceNamespaceClient::Init(): still waiting for vrserver to reply with namespace data
+Mon Nov 23 2026 20:00:05.261 [Info] - Connecting client (SteamVR_Namespace) app container status: 1
+Mon Nov 23 2026 20:00:05.261 [Info] - CSharedResourceNamespaceServer sent namespace data: 30980
+Mon Nov 23 2026 20:00:05.293 [Info] - Client (SteamVR_Namespace) app container state: 1
+Mon Nov 23 2026 20:00:05.310 [Info] - CSharedResourceNamespaceClient::Init(): received namespace data 30980
+Mon Nov 23 2026 20:00:05.310 [Info] - Self queried namespace: 30980
+Mon Nov 23 2026 20:00:05.310 [Info] - [Init] VR server 2.18.4 (v1792185270) starting up with config=C:\Program Files (x86)\Steam\config
+Mon Nov 23 2026 20:00:05.310 [Info] - [Init] VRServer will wait for VRMonitor before exiting
+Mon Nov 23 2026 20:00:05.315 [Info] - [Settings] Load Json Settings from C:\Program Files (x86)\Steam\config\steamvr.vrsettings
+Mon Nov 23 2026 20:00:05.706 [Info] - [Display] Enabling direct mode for NVIDIA [Vid=0xD94D Pid=0xC207]...
+Mon Nov 23 2026 20:00:05.706 [Info] - [Display] Successfully set display visibility.
+Mon Nov 23 2026 20:00:05.707 [Info] - [Display] Enabling direct mode for AMD [Vid=0xD94D Pid=0xC207]...
+Mon Nov 23 2026 20:00:05.860 [Warning] - [Controller Setup] CreateHMDControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_hmd_profile.json' because driver 'holographic' isn't present.
+Mon Nov 23 2026 20:00:05.877 [Warning] - [Remapping] ParseRemappingData warning. No remappings or autoremappings specified in layout from controller: pico_controller to controller: oculus_touch.
+Mon Nov 23 2026 20:00:05.976 [Warning] - [Controller Setup] Warning: Cannot use 'compatibility_mode_controller_type' and 'remapping' in the same input profile. 'compatibility_mode_controller_type' will be ignored.
+Mon Nov 23 2026 20:00:05.976 [Warning] - [Remapping] ParseRemappingData warning. No remappings or autoremappings specified in layout from controller: oculus_touch to controller: pico_controller.
+Mon Nov 23 2026 20:00:05.976 [Warning] - [Controller Setup] CreateControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_controller_profile.json' because driver 'holographic' isn't present.
+Mon Nov 23 2026 20:00:05.976 [Warning] - [Controller Setup] CreateControllerTypeFromPathIfDriverPresent failed. Not creating controller type '{holographic}/input/mixedreality_hpcontroller_profile.json' because driver 'holographic' isn't present.
+Mon Nov 23 2026 20:00:05.998 [Info] - Add Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.001 [Info] - Add Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.006 [Info] - Add Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.010 [Info] - Add Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.014 [Info] - Add Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.014 [Info] - Web language is english
+Mon Nov 23 2026 20:00:06.015 [Info] - [Web] Starting web server on port 27062
+Mon Nov 23 2026 20:00:06.074 [Info] - [Steam] Steam INIT.
+Mon Nov 23 2026 20:00:06.074 [Info] - Caching webfonts.
+Mon Nov 23 2026 20:00:06.076 [Info] - [Steam] Steam API available
+Mon Nov 23 2026 20:00:06.076 [Info] - [Steam] Steam user logged in
+Mon Nov 23 2026 20:00:06.171 [Info] - Connecting client (VR_ServerPipe_30980) app container status: 1
+Mon Nov 23 2026 20:00:06.172 [Info] - New Connect message from K:\BSLegacyLauncher\Installed Versions\Beat Saber 1.29.0\Beat Saber.exe (VRApplication_Scene) (Args: --no-yeet) 33776 
+Mon Nov 23 2026 20:00:06.183 [Info] - StartSceneApplicationTransitionFromProcess( 33776, K:\BSLegacyLauncher\Installed Versions\Beat Saber 1.29.0\Beat Saber.exe, steam.app.620980)
+Mon Nov 23 2026 20:00:06.183 [Info] - AppInfoManager.ProcessConnected BEGIN 33776 K:\BSLegacyLauncher\Installed Versions\Beat Saber 1.29.0\Beat Saber.exe 1 steam.app.620980
+Mon Nov 23 2026 20:00:06.184 [Info] - System audio devices:
+Mon Nov 23 2026 20:00:06.184 [Info] - AUDIO: Refreshing audio devices
+Mon Nov 23 2026 20:00:06.192 [Info] - SetApplicationPid appkey=steam.app.620980 pid=33776, external transition
+Mon Nov 23 2026 20:00:06.192 [Info] - SetApplicationPid: Setting app steam.app.620980 PID to 33776
+Mon Nov 23 2026 20:00:06.192 [Info] - AppInfoManager.ProcessConnected END
+Mon Nov 23 2026 20:00:06.192 [Info] - We don't yet have an input context. This should be okay, but noted.
+Mon Nov 23 2026 20:00:06.256 [Info] - lighthouse: version 2.18.4
+Mon Nov 23 2026 20:00:06.256 [Info] - lighthouse: [DepthAugmentedPassthrough] supported on this system: 1
+Mon Nov 23 2026 20:00:06.256 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is created 
+Mon Nov 23 2026 20:00:06.257 [Info] - lighthouse: Add Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.257 [Info] - lighthouse: Add Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.257 [Info] - lighthouse: Add Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.257 [Info] - lighthouse: Add Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.258 [Info] - lighthouse: Add Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse: Attached HID Devices:
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: Optical (interface 1)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: Controller (interface 2)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2101: s/n E518136DA0: Watchman Dongle (interface 0)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2101: s/n 40E4AC9C61: Watchman Dongle (interface 0)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: IMU (interface 0)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2102: s/n 0A6DB34FE3-LYM: Valve VR Radio & HMD Mic (interface 0)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2101: s/n DE32DA2B61: Watchman Dongle (interface 0)
+Mon Nov 23 2026 20:00:06.285 [Info] - lighthouse:     28DE, 2102: s/n 0B48A6C31B-RYB: Valve VR Radio (interface 0)
+Mon Nov 23 2026 20:00:06.497 [Info] - lighthouse: LHR-329ADD4A: Read config of 3089 bytes from [vid:28de, pid:2300] (LHR-329ADD4A) and inflated to 9732 bytes
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: HMD Model: Valve Index HMD
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding parallel_render_cameras to enabled (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding resource_root (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding input_profile to {indexhmd}/input/indexhmd_profile.json (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding proximityEnable to 1 (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding Head Position (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Original: 0.000000 0.000000 -0.010920 
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Updated:  0.000000 0.000000 -0.025920 
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding subpixel_shift (Valve Index HMD)
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Original shift red in pixels:  0.000000 0.000000
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Original shift blue in pixels: 0.000000 0.000000
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Updated shift red in pixels:  -0.333333 0.000000
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Updated shift blue in pixels: 0.333333 0.000000
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: Device JSON: Overriding display_color_mult
+Mon Nov 23 2026 20:00:06.498 [Info] - lighthouse: RootSerial AUAB209400EC
+Mon Nov 23 2026 20:00:06.503 [Info] - lighthouse: LHR-329ADD4A: Applying scale 1.0048 from reference object lighthouse/Valve Index HMD
+Mon Nov 23 2026 20:00:06.508 [Info] - lighthouse: Parsing LighthouseDB from file C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Mon Nov 23 2026 20:00:06.509 [Info] - lighthouse: Successfully parsed Lighthouse DB rev 61945 from C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Mon Nov 23 2026 20:00:06.509 [Info] - lighthouse: LHR-329ADD4A H: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Mon Nov 23 2026 20:00:06.509 [Info] - lighthouse: RENDERDOC API Not Found
+Mon Nov 23 2026 20:00:06.509 [Info] - lighthouse: Enumerating displays...
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005: 0, 0, 2560, 1440
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006: 2560, 186, 1920, 1080
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004: -1920, 135, 1920, 1080
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: <hidden>: 0, 0, 0, 0
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: RecommendedRenderTargetSize: 1440, 1600 (viewport 2016, 2240 scaled by 1.40)
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: Attempting HID Open IMU: LHR-329ADD4A
+Mon Nov 23 2026 20:00:06.521 [Info] - lighthouse: Lighthouse IMU HID opened
+Mon Nov 23 2026 20:00:06.525 [Info] - lighthouse: LHR-329ADD4A: Firmware Version 1623823641 WMBUILD-W64$@wmbuild-w64 2021-06-16 FPGA 538(2.26/9/2) BL 1555018800
+Mon Nov 23 2026 20:00:06.552 [Info] - lighthouse: LHR-329ADD4A: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:1 AccelRangeMode:1
+Mon Nov 23 2026 20:00:06.554 [Info] - lighthouse: Attempting HID Open Optical: LHR-329ADD4A
+Mon Nov 23 2026 20:00:06.554 [Info] - lighthouse: Lighthouse Optical HID opened
+Mon Nov 23 2026 20:00:06.556 [Info] - lighthouse: Attempting HID Open VrController: LHR-329ADD4A
+Mon Nov 23 2026 20:00:06.556 [Info] - lighthouse: Lighthouse VrController HID opened
+Mon Nov 23 2026 20:00:06.557 [Info] - lighthouse: TrackedCamera: OnWorkThread_OpenCamera()
+Mon Nov 23 2026 20:00:07.187 [Info] - lighthouse: TrackedCamera: Found Dual Cameras at USB VID:28DE, USB PID:2400
+Mon Nov 23 2026 20:00:07.391 [Info] - lighthouse: TrackedCamera: Detailed Firmware Information: model:776, date:20200407, version:9
+Mon Nov 23 2026 20:00:07.414 [Info] - lighthouse: CAMCMD_GET_OPENCAMERA_RESULT
+Mon Nov 23 2026 20:00:07.417 [Info] - lighthouse: InitTrackedCamera(): Opened tracked camera on (LHR-329ADD4A). Compatibility Mode:0. Etron_776_20200407_v009_Bulk
+Mon Nov 23 2026 20:00:07.419 [Info] - lighthouse: Attempting HID Open IMU: E518136DA0
+Mon Nov 23 2026 20:00:07.419 [Info] - lighthouse: Lighthouse IMU HID opened
+Mon Nov 23 2026 20:00:07.437 [Info] - lighthouse: Attempting HID Open IMU: 40E4AC9C61
+Mon Nov 23 2026 20:00:07.437 [Info] - lighthouse: Lighthouse IMU HID opened
+Mon Nov 23 2026 20:00:07.441 [Info] - lighthouse: Attempting HID Open IMU: 0A6DB34FE3-LYM
+Mon Nov 23 2026 20:00:07.465 [Info] - lighthouse: SelectVideoConfig: DP HDCP14LegacyCompatibility support: 1
+Mon Nov 23 2026 20:00:07.465 [Info] - lighthouse: SelectVideoConfig: DP Training Mode support: 1
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig: HMD has exposed 5 EDIDs
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:     edid_id=9
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:         refresh=79.998878
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:     edid_id=4
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:         refresh=90.002625
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:     edid_id=10
+Mon Nov 23 2026 20:00:07.491 [Info] - lighthouse: SelectVideoConfig:         refresh=120.019035
+Mon Nov 23 2026 20:00:07.495 [Info] - lighthouse: SelectVideoConfig: Current VideoMode EdidId=5 HDCP14LegacyCompat=0 PreEmphSwingValid=1 PreEmphasis=0 Swing=1
+Mon Nov 23 2026 20:00:07.495 [Info] - lighthouse: SelectVideoConfig: No Video Mode Change required
+Mon Nov 23 2026 20:00:07.499 [Info] - lighthouse: panel_on_time_deprecated_s: 23821 23821
+Mon Nov 23 2026 20:00:07.499 [Info] - lighthouse: panel_burn_time_s: 22011 22011
+Mon Nov 23 2026 20:00:07.499 [Info] - lighthouse: panel_on_time_s: 2598679 2598679
+Mon Nov 23 2026 20:00:07.499 [Info] - lighthouse: Set column correction 1.177009 0 1.177009 0
+Mon Nov 23 2026 20:00:07.499 [Info] - lighthouse: Setting Edid VendorID 9659 and product ID 91A8 from json
+Mon Nov 23 2026 20:00:07.516 [Info] - lighthouse: Unable to query MC Image size
+Mon Nov 23 2026 20:00:07.516 [Info] - lighthouse: Generating hidden area mesh for mode "5" left eye
+Mon Nov 23 2026 20:00:07.516 [Info] - lighthouse: Generating hidden area mesh for mode "5" right eye
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: Set index backlight gain: 1.600000
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _cs47l35_dsp (header.crc=7FA1CA11)
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _cs47l35_tuning (header.crc=C25B7167)
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _npca110p_dsp (header.crc=51E667E6)
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _tfa9892_dsp (header.crc=97F72C13)
+Mon Nov 23 2026 20:00:07.518 [Info] - lighthouse: LHR-329ADD4A H: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 9
+Mon Nov 23 2026 20:00:07.522 [Info] - lighthouse: panel_on_time_deprecated_s: 23821 23821
+Mon Nov 23 2026 20:00:07.522 [Info] - lighthouse: panel_burn_time_s: 22011 22011
+Mon Nov 23 2026 20:00:07.522 [Info] - lighthouse: panel_on_time_s: 2598679 2598679
+Mon Nov 23 2026 20:00:07.522 [Info] - lighthouse: Set column correction 1.177009 0 1.177009 0
+Mon Nov 23 2026 20:00:07.523 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new index headset id : 0 
+Mon Nov 23 2026 20:00:07.523 [Info] - lighthouse: [DepthAugmentedPassthrough] : Connecting to the frame block queue ...
+Mon Nov 23 2026 20:00:07.524 [Info] - lighthouse: [DepthAugmentedPassthrough] : Creating the mesh block queue ...
+Mon Nov 23 2026 20:00:07.524 [Info] - lighthouse: [DepthAugmentedPassthrough] : Main processing thread has started. We will wait until we get a listener before really launching the processing ... 
+Mon Nov 23 2026 20:00:07.565 [Info] - lighthouse: LHR-329ADD4A H: Saw demod rate 2660/s, enabling Sync on Beam
+Mon Nov 23 2026 20:00:07.565 [Info] - lighthouse: LHR-329ADD4A H: SwSyncDetect selected synconbeam
+Mon Nov 23 2026 20:00:07.617 [Info] - lighthouse: Looking for default audio playback device matching VID:9659/PID:91a8 Index HMD
+Mon Nov 23 2026 20:00:07.635 [Info] - lighthouse: Looking for default audio recording device matching VID:28de/PID:2102 Valve VR Radio & HMD Mic
+Mon Nov 23 2026 20:00:07.635 [Info] - lighthouse: Found default audio recording device Digital Audio Interface (2- Valve VR Radio & HMD Mic), VID:28de/PID:2102 {0.0.1.00000000}.{e22f7c3d-a3ef-4e0c-84a4-c4d730adadc9}
+Mon Nov 23 2026 20:00:07.705 [Info] - lighthouse: LHR-329ADD4A H: SOB: add S-7
+Mon Nov 23 2026 20:00:07.765 [Info] - lighthouse: LHR-329ADD4A H: SOB: add S-1 also seeing S-7
+Mon Nov 23 2026 20:00:07.817 [Info] - lighthouse: LHR-329ADD4A H: SOB: add S-5 also seeing S-1 S-7
+Mon Nov 23 2026 20:00:08.422 [Info] - lighthouse: E518136DA0: Triggered keepalive (succeeded)
+Mon Nov 23 2026 20:00:08.439 [Info] - lighthouse: 40E4AC9C61: Triggered keepalive (succeeded)
+Mon Nov 23 2026 20:00:08.443 [Info] - lighthouse: 0A6DB34FE3-LYM: Triggered keepalive (succeeded)
+Mon Nov 23 2026 20:00:08.887 [Info] - lighthouse: Looking for default audio playback device matching VID:9659/PID:91a8 Index HMD
+Mon Nov 23 2026 20:00:08.897 [Info] - lighthouse: Looking for default audio playback device matching VID:9659/PID:91a8 Index HMD
+Mon Nov 23 2026 20:00:09.338 [Info] - lighthouse: LHR-329ADD4A H: ----- BOOTSTRAPPED base B3316995 (immediate) distance 3.32m velocity 0.03m/s base pitch ~34.6 deg roll ~5.5 deg -----
+Mon Nov 23 2026 20:00:09.929 [Info] - lighthouse: Found default audio playback device Index HMD (NVIDIA High Definition Audio), VID:9659/PID:91a8 {0.0.0.00000000}.{73f4c8e4-a962-4a7d-a734-7b13c1a7ddd7}
+Mon Nov 23 2026 20:00:11.007 [Info] - lighthouse: 0B48A6C31B-RYB: Packet received after 4.752s, keepalive (0/1)
+Mon Nov 23 2026 20:00:11.007 [Info] - lighthouse: 0B48A6C31B-RYB: Wireless controller  disconnected
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: LHR-329ADD4A H: ----- CALIBRATED base B3316995 at pitch 36.23 deg roll 8.82 deg -----
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: Updating tilt for B3316995:  Old= 36.56, -5.00, 1.70864e-05 <- 12.90 deg -> new= 36.23, 8.82, 5.98581e-06   result=36.23, 8.82, 5.98581e-06
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: Best tilt from LHR-329ADD4A for base B3316995 pitch 36.23 roll 8.82 score 2.56
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: BootstrapFinished setting tilt base to B3316995
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: Selected existing universe 1749950692 (B3316995 is primary)
+Mon Nov 23 2026 20:00:11.210 [Info] - lighthouse: Setting universe tilt from B3316995 via transform to global: pitch 36.23 deg roll 8.82 deg
+Mon Nov 23 2026 20:00:11.223 [Info] - lighthouse: Saved LighthouseDB rev 61946 to C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Mon Nov 23 2026 20:00:11.881 [Info] - lighthouse: LHR-329ADD4A H: ----- SECONDARY base EE93C79B distance 2.98m -----
+Mon Nov 23 2026 20:00:12.207 [Info] - lighthouse: 0B48A6C31B-RYB: Packet received after 5.952s, keepalive (0/1)
+Mon Nov 23 2026 20:00:12.207 [Info] - lighthouse: 0B48A6C31B-RYB: Wireless controller  disconnected
+Mon Nov 23 2026 20:00:12.611 [Info] - lighthouse: LHR-329ADD4A H: ----- RELATIONSHIP bases B3316995 <-> ee93c79b distance 2.80m, angle 40.48 deg -----
+Mon Nov 23 2026 20:00:12.611 [Info] - lighthouse: Moving base EE93C79B 56mm and 0.8 deg because of relationship with B3316995, which is closer to the origin
+Mon Nov 23 2026 20:00:12.627 [Info] - lighthouse: Saved LighthouseDB rev 61947 to C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Mon Nov 23 2026 20:00:13.155 [Info] - lighthouse: LHR-329ADD4A H: ----- SECONDARY base A0CD6092 distance 2.80m  -----
+Mon Nov 23 2026 20:00:13.196 [Info] - lighthouse: 40E4AC9C61: Packet received after 6.941s, keepalive (0/2)
+Mon Nov 23 2026 20:00:13.197 [Info] - lighthouse: 40E4AC9C61: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:3 AccelRangeMode:2
+Mon Nov 23 2026 20:00:13.221 [Info] - lighthouse: LHR-29C03CCA: Connected to receiver 40E4AC9C61
+Mon Nov 23 2026 20:00:13.230 [Info] - lighthouse: 40E4AC9C61: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0 VRC 1693638519 Radio 1562882729
+Mon Nov 23 2026 20:00:13.230 [Info] - lighthouse: LHR-29C03CCA: Protocol versioning supported, requesting 1
+Mon Nov 23 2026 20:00:13.237 [Info] - lighthouse: LHR-29C03CCA: Transition to protocol version 1
+Mon Nov 23 2026 20:00:13.253 [Info] - lighthouse: LHR-329ADD4A H: ----- RELATIONSHIP bases B3316995 <-> a0cd6092 distance 4.19m, angle 120.70 deg -----
+Mon Nov 23 2026 20:00:13.253 [Info] - lighthouse: Moving base A0CD6092 27mm and 0.3 deg because of relationship with B3316995, which is closer to the origin
+Mon Nov 23 2026 20:00:13.274 [Info] - lighthouse: LHR-29C03CCA: Optical subprotocol changed version 0
+Mon Nov 23 2026 20:00:13.274 [Info] - lighthouse: LHR-29C03CCA: Controller subprotocol changed version 0
+Mon Nov 23 2026 20:00:13.609 [Info] - lighthouse: 40E4AC9C61: Read config of 1706 bytes from [vid:28de, pid:2101] (40E4AC9C61) and inflated to 4167 bytes
+Mon Nov 23 2026 20:00:13.609 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":1.87134504,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.60259402}
+Mon Nov 23 2026 20:00:13.609 [Info] - lighthouse: LHR-29C03CCA: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Left (MP)
+Mon Nov 23 2026 20:00:13.609 [Info] - lighthouse: LHR-29C03CCA C: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Mon Nov 23 2026 20:00:13.609 [Info] - lighthouse: RENDERDOC API Not Found
+Mon Nov 23 2026 20:00:13.671 [Info] - lighthouse: 0B48A6C31B-RYB: Wireless controller  disconnected
+Mon Nov 23 2026 20:00:13.693 [Info] - lighthouse: LHR-29C03CCA C: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 9
+Mon Nov 23 2026 20:00:13.695 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_left\valve_controller_knu_1_0_left_low_res.obj for controller id 4 
+Mon Nov 23 2026 20:00:13.696 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new left controller device. id : 4 
+Mon Nov 23 2026 20:00:13.710 [Info] - lighthouse: Saved LighthouseDB rev 61948 to C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Mon Nov 23 2026 20:00:13.749 [Info] - lighthouse: LHR-29C03CCA C: Saw demod rate 1200/s, enabling Sync on Beam
+Mon Nov 23 2026 20:00:13.749 [Info] - lighthouse: LHR-29C03CCA C: SwSyncDetect selected synconbeam
+Mon Nov 23 2026 20:00:13.916 [Info] - lighthouse: LHR-29C03CCA: Optical subprotocol changed version 1
+Mon Nov 23 2026 20:00:13.918 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-5
+Mon Nov 23 2026 20:00:13.975 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-1 also seeing S-5
+Mon Nov 23 2026 20:00:14.159 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-7 also seeing S-1 S-5
+Mon Nov 23 2026 20:00:14.317 [Info] - lighthouse: LHR-29C03CCA C: ----- BOOTSTRAPPED base B3316995 (immediate) distance 2.01m velocity 0.02m/s base pitch ~34.6 deg roll ~5.5 deg -----
+Mon Nov 23 2026 20:00:15.395 [Info] - lighthouse: LHR-29C03CCA C: ----- CALIBRATED base B3316995 at pitch 36.01 deg roll 9.13 deg -----
+Mon Nov 23 2026 20:00:15.630 [Info] - lighthouse: Starting test
+Mon Nov 23 2026 20:00:18.696 [Info] - lighthouse: LHR-29C03CCA C: Trying to add a secondary base A0CD6092: Available samples not sufficient for booting (hits: 2+0)
+Mon Nov 23 2026 20:00:18.696 [Info] - lighthouse: LHR-29C03CCA C: Trying to add a secondary base EE93C79B: Available samples not sufficient for booting (hits: 1+1)
+Mon Nov 23 2026 20:00:21.572 [Info] - lighthouse: Started pairing dongle serial=0A6DB34FE3-LYM timeout=10.000000
+Mon Nov 23 2026 20:00:22.511 [Info] - lighthouse: 0A6DB34FE3-LYM: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:3 AccelRangeMode:2
+Mon Nov 23 2026 20:00:22.524 [Info] - lighthouse: LHR-F19C1C47: Connected to receiver 0A6DB34FE3-LYM
+Mon Nov 23 2026 20:00:22.534 [Info] - lighthouse: 0A6DB34FE3-LYM: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0 VRC 1693638519 Radio 1562882729
+Mon Nov 23 2026 20:00:22.534 [Info] - lighthouse: LHR-F19C1C47: Protocol versioning supported, requesting 1
+Mon Nov 23 2026 20:00:22.543 [Info] - lighthouse: LHR-F19C1C47: Transition to protocol version 1
+Mon Nov 23 2026 20:00:22.591 [Info] - lighthouse: LHR-F19C1C47: Optical subprotocol changed version 0
+Mon Nov 23 2026 20:00:22.591 [Info] - lighthouse: LHR-F19C1C47: Controller subprotocol changed version 0
+Mon Nov 23 2026 20:00:22.961 [Info] - lighthouse: 0A6DB34FE3-LYM: Read config of 1710 bytes from [vid:28de, pid:2102] (0A6DB34FE3-LYM) and inflated to 4164 bytes
+Mon Nov 23 2026 20:00:22.961 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":0.61705279400000002,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.1080889700000001}
+Mon Nov 23 2026 20:00:22.961 [Info] - lighthouse: LHR-F19C1C47: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Right (MP)
+Mon Nov 23 2026 20:00:22.961 [Info] - lighthouse: LHR-F19C1C47 C: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Mon Nov 23 2026 20:00:22.961 [Info] - lighthouse: RENDERDOC API Not Found
+Mon Nov 23 2026 20:00:22.998 [Info] - lighthouse: LHR-F19C1C47 C: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 9
+Mon Nov 23 2026 20:00:22.999 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_right\valve_controller_knu_1_0_right_low_res.obj for controller id 5 
+Mon Nov 23 2026 20:00:22.999 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new right controller device. id : 5 
+Mon Nov 23 2026 20:00:23.050 [Info] - lighthouse: LHR-F19C1C47 C: Saw demod rate 953/s, enabling Sync on Beam
+Mon Nov 23 2026 20:00:23.050 [Info] - lighthouse: LHR-F19C1C47 C: SwSyncDetect selected synconbeam
+Mon Nov 23 2026 20:00:23.251 [Info] - lighthouse: LHR-F19C1C47 C: SOB: add S-5
+Mon Nov 23 2026 20:00:23.305 [Info] - lighthouse: LHR-F19C1C47 C: SOB: add S-1 also seeing S-5
+Mon Nov 23 2026 20:00:23.982 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Mon Nov 23 2026 20:00:23.987 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Mon Nov 23 2026 20:00:24.456 [Info] - lighthouse: LHR-29C03CCA C: ----- SECONDARY base A0CD6092 distance 3.35m -----
+Mon Nov 23 2026 20:00:24.690 [Info] - lighthouse: LHR-F19C1C47 C: SOB: add S-7 also seeing S-1 S-5
+Mon Nov 23 2026 20:00:24.808 [Info] - lighthouse: LHR-29C03CCA C: ----- RELATIONSHIP bases B3316995 <-> a0cd6092 distance 4.17m, angle 120.31 deg -----
+Mon Nov 23 2026 20:00:24.963 [Info] - lighthouse: LHR-F19C1C47 C: ----- BOOTSTRAPPED base B3316995 (immediate) distance 2.13m velocity 0.12m/s base pitch ~34.6 deg roll ~5.5 deg -----
+Mon Nov 23 2026 20:00:25.916 [Info] - lighthouse: LHR-329ADD4A H: SOB: add S-1 (generation changed) also seeing S-5 (EE93C79B) S-7 (A0CD6092)
+Mon Nov 23 2026 20:00:26.227 [Info] - lighthouse: LHR-F19C1C47 C: ----- CALIBRATED base B3316995 at pitch 35.14 deg roll 8.60 deg -----
+Mon Nov 23 2026 20:00:26.865 [Info] - lighthouse: LHR-F19C1C47 C: ----- SECONDARY base A0CD6092 distance 3.29m -----
+Mon Nov 23 2026 20:00:28.182 [Info] - lighthouse: LHR-F19C1C47 C: ----- RELATIONSHIP bases B3316995 <-> a0cd6092 distance 4.22m, angle 119.69 deg -----
+Mon Nov 23 2026 20:00:28.700 [Info] - lighthouse: LHR-29C03CCA C: Trying to add a secondary base EE93C79B: Available samples not sufficient for booting (hits: 4+0)
+Mon Nov 23 2026 20:00:30.549 [Info] - lighthouse: Starting test
+Mon Nov 23 2026 20:00:33.747 [Info] - lighthouse: LHR-F19C1C47 C: SOB: drop S-5 seeing S-1 (B3316995) S-7 (A0CD6092)
+Mon Nov 23 2026 20:00:38.606 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Mon Nov 23 2026 20:00:38.613 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Mon Nov 23 2026 20:00:39.931 [Info] - lighthouse: LHR-29C03CCA C: ----- SECONDARY base EE93C79B distance 2.39m  -----
+Mon Nov 23 2026 20:00:39.963 [Info] - lighthouse: LHR-29C03CCA C: ----- RELATIONSHIP bases B3316995 <-> ee93c79b distance 2.83m, angle 40.43 deg -----
+Mon Nov 23 2026 20:00:40.358 [Info] - lighthouse: LHR-F19C1C47 C: SOB: add S-5 also seeing S-1 (B3316995) S-7 (A0CD6092)
+Mon Nov 23 2026 20:00:40.877 [Info] - lighthouse: LHR-F19C1C47 C: ----- SECONDARY base EE93C79B distance 2.49m  -----
+Mon Nov 23 2026 20:00:43.310 [Info] - lighthouse: LHR-329ADD4A: Updated IMU calibration: Accel bias change 0.06m/s/s
+Mon Nov 23 2026 20:00:58.852 [Info] - lighthouse: LHR-F19C1C47 C: IMU went off scale.
+Mon Nov 23 2026 20:01:03.404 [Info] - lighthouse: LHR-F19C1C47 C: IMU went off scale.
+Mon Nov 23 2026 20:01:23.325 [Info] - lighthouse: LHR-F19C1C47 C: IMU went off scale.
+Mon Nov 23 2026 20:03:04.711 [Info] - lighthouse: LHR-29C03CCA C: Assertion failed:  Explicit right sync does not match pending frame
+Mon Nov 23 2026 20:03:04.715 [Info] - lighthouse: LHR-29C03CCA C: Assertion failed:  Explicit right sync does not match pending frame
+Mon Nov 23 2026 20:08:52.198 [Info] - lighthouse: LHR-29C03CCA: Updated IMU calibration: Accel bias change 0.14m/s/s
+Mon Nov 23 2026 20:08:52.198 [Info] - lighthouse: Updating tilt for B3316995:  Old= 36.23, 8.82, 5.98581e-06 <- 0.74 deg -> new= 35.95, 8.09, 7.80188e-07   result=35.95, 8.09, 7.80188e-07
+Mon Nov 23 2026 20:20:44.055 [Info] - lighthouse: LHR-329ADD4A H: IMU went off scale.
+Mon Nov 23 2026 20:20:57.519 [Info] - lighthouse: LHR-29C03CCA C: SOB: drop S-7 (A0CD6092) seeing S-1 (B3316995) S-5 (EE93C79B)
+Mon Nov 23 2026 20:20:57.542 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-7 also seeing S-1 (B3316995) S-5 (EE93C79B)
+Mon Nov 23 2026 20:21:01.527 [Info] - lighthouse: LHR-329ADD4A H: IMU went off scale.
+Mon Nov 23 2026 20:21:08.856 [Info] - lighthouse: LHR-F19C1C47 C: SOB: drop S-5 (EE93C79B) seeing S-1 (B3316995) S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:09.476 [Info] - lighthouse: LHR-329ADD4A H: SOB: drop S-1 (B3316995) seeing S-5 (EE93C79B) S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:09.882 [Info] - lighthouse: LHR-329ADD4A H: IMU went off scale.
+Mon Nov 23 2026 20:21:10.043 [Info] - lighthouse: LHR-29C03CCA C: SOB: drop S-5 (EE93C79B) seeing S-1 (B3316995) S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:10.410 [Info] - lighthouse: LHR-329ADD4A H: SOB: drop S-5 (EE93C79B) seeing S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:11.956 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-5 also seeing S-1 (B3316995) S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:22.370 [Info] - lighthouse: LHR-29C03CCA C: SOB: drop S-1 (B3316995) seeing S-5 S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:23.968 [Info] - lighthouse: LHR-F19C1C47 C: SOB: drop S-1 (B3316995) seeing S-5 S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:24.917 [Info] - lighthouse: LHR-F19C1C47 C: Assertion failed:  Explicit right sync does not match pending frame
+Mon Nov 23 2026 20:21:27.167 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-1 also seeing S-5 (EE93C79B) S-7 (A0CD6092)
+Mon Nov 23 2026 20:21:35.989 [Info] - lighthouse: LHR-F19C1C47: Updated IMU calibration: Accel bias change 0.25m/s/s
+Mon Nov 23 2026 20:26:29.759 [Info] - lighthouse: Device LHR-29C03CCA powering off upon entering standby.
+Mon Nov 23 2026 20:26:29.759 [Info] - lighthouse: Device LHR-F19C1C47 powering off upon entering standby.
+Mon Nov 23 2026 20:26:30.259 [Info] - lighthouse: 40E4AC9C61: Wireless controller LHR-29C03CCA disconnected
+Mon Nov 23 2026 20:26:30.259 [Info] - lighthouse: LHR-29C03CCA: Disconnected from receiver 40E4AC9C61
+Mon Nov 23 2026 20:26:30.259 [Info] - lighthouse: LHR-29C03CCA C: Dropped 3 rejected updates, 109934 back-facing hits, 123 non-clustered hits during the previous tracking session
+Mon Nov 23 2026 20:26:30.315 [Info] - lighthouse: 0A6DB34FE3-LYM: Wireless controller LHR-F19C1C47 disconnected
+Mon Nov 23 2026 20:26:30.315 [Info] - lighthouse: LHR-F19C1C47: Disconnected from receiver 0A6DB34FE3-LYM
+Mon Nov 23 2026 20:26:30.315 [Info] - lighthouse: LHR-F19C1C47 C: Dropped 1 rejected updates, 156540 back-facing hits, 98 non-clustered hits during the previous tracking session
+Mon Nov 23 2026 20:26:30.572 [Info] - lighthouse: Lost default audio playback Index HMD (NVIDIA High Definition Audio)
+Mon Nov 23 2026 20:26:30.919 [Info] - lighthouse: [DepthAugmentedPassthrough] : Unregistering tracked device. id : 5, TrackedDeviceType 2 
+Mon Nov 23 2026 20:26:30.963 [Info] - lighthouse: [DepthAugmentedPassthrough] : Unregistering tracked device. id : 4, TrackedDeviceType 1 
+Mon Nov 23 2026 20:26:30.968 [Info] - lighthouse: LHR-329ADD4A H: Dropped 244598 back-facing hits during the previous tracking session
+Mon Nov 23 2026 20:26:30.968 [Info] - lighthouse: [DepthAugmentedPassthrough] : Unregistering tracked device. id : 0, TrackedDeviceType 0 
+Mon Nov 23 2026 20:26:30.969 [Info] - lighthouse: TrackedCamera: Stopping Video Stream For Camera Shutdown.
+Mon Nov 23 2026 20:26:30.993 [Info] - lighthouse: TrackedCamera: OnWorkThread_CloseCamera()
+Mon Nov 23 2026 20:26:31.039 [Info] - lighthouse: Stopped tracking with universe 1749950692
+Mon Nov 23 2026 20:26:31.303 [Info] - lighthouse: [DepthAugmentedPassthrough] : Main processing thread fetching frame was stopped. CDepthAugmentedPassthrough is cleaned and can be destroyed safely 
+Mon Nov 23 2026 20:26:31.303 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is destroyed 
+Tue Nov 24 2026 01:22:57.104 [Info] - vrserver 2.18.4 startup with PID=25664, config=C:\Program Files (x86)\Steam\config, runtime=C:\Program Files (x86)\Steam\steamapps\common\SteamVR, arch=win64
+Tue Nov 24 2026 01:22:58.221 [Info] - lighthouse: version 2.18.4
+Tue Nov 24 2026 01:22:58.221 [Info] - lighthouse: [DepthAugmentedPassthrough] supported on this system: 1
+Tue Nov 24 2026 01:22:58.224 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is created 
+Tue Nov 24 2026 01:22:58.225 [Info] - lighthouse: Add Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:22:58.225 [Info] - lighthouse: Add Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:22:58.225 [Info] - lighthouse: Add Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:22:58.226 [Info] - lighthouse: Add Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:22:58.226 [Info] - lighthouse: Add Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:22:58.250 [Info] - lighthouse: Attached HID Devices:
+Tue Nov 24 2026 01:22:58.250 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: Optical (interface 1)
+Tue Nov 24 2026 01:22:58.250 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: Controller (interface 2)
+Tue Nov 24 2026 01:22:58.251 [Info] - lighthouse:     28DE, 2300: s/n LHR-329ADD4A: IMU (interface 0)
+Tue Nov 24 2026 01:22:58.251 [Info] - lighthouse:     28DE, 2102: s/n 0A6DB34FE3-LYM: Valve VR Radio & HMD Mic (interface 0)
+Tue Nov 24 2026 01:22:58.251 [Info] - lighthouse:     28DE, 2102: s/n 0B48A6C31B-RYB: Valve VR Radio (interface 0)
+Tue Nov 24 2026 01:22:58.464 [Info] - lighthouse: LHR-329ADD4A: Read config of 3089 bytes from [vid:28de, pid:2300] (LHR-329ADD4A) and inflated to 9732 bytes
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: HMD Model: Valve Index HMD
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding parallel_render_cameras to enabled (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding resource_root (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding input_profile to {indexhmd}/input/indexhmd_profile.json (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding proximityEnable to 1 (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding Head Position (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Original: 0.000000 0.000000 -0.010920 
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Updated:  0.000000 0.000000 -0.025920 
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding subpixel_shift (Valve Index HMD)
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Original shift red in pixels:  0.000000 0.000000
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Original shift blue in pixels: 0.000000 0.000000
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Updated shift red in pixels:  -0.333333 0.000000
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Updated shift blue in pixels: 0.333333 0.000000
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: Device JSON: Overriding display_color_mult
+Tue Nov 24 2026 01:22:58.465 [Info] - lighthouse: RootSerial AUAB209400EC
+Tue Nov 24 2026 01:22:58.471 [Info] - lighthouse: LHR-329ADD4A: Applying scale 1.0048 from reference object lighthouse/Valve Index HMD
+Tue Nov 24 2026 01:22:58.478 [Info] - lighthouse: Parsing LighthouseDB from file C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Tue Nov 24 2026 01:22:58.479 [Info] - lighthouse: Successfully parsed Lighthouse DB rev 61952 from C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Tue Nov 24 2026 01:22:58.480 [Info] - lighthouse: LHR-329ADD4A H: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Tue Nov 24 2026 01:22:58.480 [Info] - lighthouse: Enumerating displays...
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005: 0, 0, 2560, 1440
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006: 2560, 186, 1920, 1080
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004: -1920, 135, 1920, 1080
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: <hidden>: 0, 0, 0, 0
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: RecommendedRenderTargetSize: 1440, 1600 (viewport 2016, 2240 scaled by 1.40)
+Tue Nov 24 2026 01:22:58.490 [Info] - lighthouse: Attempting HID Open IMU: LHR-329ADD4A
+Tue Nov 24 2026 01:22:58.494 [Info] - lighthouse: LHR-329ADD4A: Firmware Version 1623823641 WMBUILD-W64$@wmbuild-w64 2021-06-16 FPGA 538(2.26/9/2) BL 1555018800
+Tue Nov 24 2026 01:22:58.519 [Info] - lighthouse: LHR-329ADD4A: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:1 AccelRangeMode:1
+Tue Nov 24 2026 01:22:58.521 [Info] - lighthouse: Attempting HID Open Optical: LHR-329ADD4A
+Tue Nov 24 2026 01:22:58.521 [Info] - lighthouse: Lighthouse Optical HID opened
+Tue Nov 24 2026 01:22:58.523 [Info] - lighthouse: Attempting HID Open VrController: LHR-329ADD4A
+Tue Nov 24 2026 01:22:58.523 [Info] - lighthouse: Lighthouse VrController HID opened
+Tue Nov 24 2026 01:22:58.525 [Info] - lighthouse: TrackedCamera: OnWorkThread_OpenCamera()
+Tue Nov 24 2026 01:22:59.133 [Info] - lighthouse: TrackedCamera: Found Dual Cameras at USB VID:28DE, USB PID:2400
+Tue Nov 24 2026 01:22:59.335 [Info] - lighthouse: TrackedCamera: Detailed Firmware Information: model:776, date:20200407, version:9
+Tue Nov 24 2026 01:22:59.359 [Info] - lighthouse: CAMCMD_GET_OPENCAMERA_RESULT
+Tue Nov 24 2026 01:22:59.366 [Info] - lighthouse: InitTrackedCamera(): Opened tracked camera on (LHR-329ADD4A). Compatibility Mode:0. Etron_776_20200407_v009_Bulk
+Tue Nov 24 2026 01:22:59.413 [Info] - lighthouse: DE32DA2B61: Firmware Version 1592875850 watchman@valvebuilder01 2020-06-22 FPGA 538(2.26/7/2) BL 0
+Tue Nov 24 2026 01:22:59.434 [Info] - lighthouse: LHR-BA34F722: Connected to receiver DE32DA2B61
+Tue Nov 24 2026 01:22:59.446 [Info] - lighthouse: LHR-BA34F722: Protocol versioning supported, requesting 1
+Tue Nov 24 2026 01:22:59.452 [Info] - lighthouse: DE32DA2B61: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:3 AccelRangeMode:2
+Tue Nov 24 2026 01:22:59.455 [Info] - lighthouse: SelectVideoConfig: DP HDCP14LegacyCompatibility support: 1
+Tue Nov 24 2026 01:22:59.455 [Info] - lighthouse: SelectVideoConfig: DP Training Mode support: 1
+Tue Nov 24 2026 01:22:59.457 [Info] - lighthouse: LHR-BA34F722: Transition to protocol version 1
+Tue Nov 24 2026 01:22:59.470 [Info] - lighthouse: LHR-BA34F722: Controller subprotocol changed version 0
+Tue Nov 24 2026 01:22:59.481 [Info] - lighthouse: SelectVideoConfig: HMD has exposed 5 EDIDs
+Tue Nov 24 2026 01:22:59.486 [Info] - lighthouse: SelectVideoConfig: Current VideoMode EdidId=5 HDCP14LegacyCompat=0 PreEmphSwingValid=1 PreEmphasis=0 Swing=1
+Tue Nov 24 2026 01:22:59.486 [Info] - lighthouse: SelectVideoConfig: No Video Mode Change required
+Tue Nov 24 2026 01:22:59.491 [Info] - lighthouse: panel_on_time_deprecated_s: 23821 23821
+Tue Nov 24 2026 01:22:59.491 [Info] - lighthouse: panel_burn_time_s: 22011 22011
+Tue Nov 24 2026 01:22:59.491 [Info] - lighthouse: panel_on_time_s: 2600090 2600090
+Tue Nov 24 2026 01:22:59.491 [Info] - lighthouse: Set column correction 1.177114 0 1.177114 0
+Tue Nov 24 2026 01:22:59.491 [Info] - lighthouse: Setting Edid VendorID 9659 and product ID 91A8 from json
+Tue Nov 24 2026 01:22:59.508 [Info] - lighthouse: Unable to query MC Image size
+Tue Nov 24 2026 01:22:59.508 [Info] - lighthouse: Generating hidden area mesh for mode "5" left eye
+Tue Nov 24 2026 01:22:59.508 [Info] - lighthouse: Generating hidden area mesh for mode "5" right eye
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: Set index backlight gain: 1.600000
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: LHR-329ADD4A H: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 9
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _cs47l35_dsp (header.crc=7FA1CA11)
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _cs47l35_tuning (header.crc=C25B7167)
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _npca110p_dsp (header.crc=51E667E6)
+Tue Nov 24 2026 01:22:59.510 [Info] - lighthouse: VerifyUSBUserDataInDirectory: Skipping _tfa9892_dsp (header.crc=97F72C13)
+Tue Nov 24 2026 01:22:59.515 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new index headset id : 0 
+Tue Nov 24 2026 01:22:59.515 [Info] - lighthouse: [DepthAugmentedPassthrough] : Connecting to the frame block queue ...
+Tue Nov 24 2026 01:22:59.515 [Info] - lighthouse: [DepthAugmentedPassthrough] : Creating the mesh block queue ...
+Tue Nov 24 2026 01:22:59.515 [Info] - lighthouse: [DepthAugmentedPassthrough] : Main processing thread has started. We will wait until we get a listener before really launching the processing ... 
+Tue Nov 24 2026 01:23:00.146 [Info] - lighthouse: DE32DA2B61: Read config of 1993 bytes from [vid:28de, pid:2101] (DE32DA2B61) and inflated to 8069 bytes
+Tue Nov 24 2026 01:23:00.146 [Info] - lighthouse: LHR-BA34F722: Applying scale 1.0034 from reference object lighthouse/HTC Tracker 3
+Tue Nov 24 2026 01:23:00.146 [Info] - lighthouse: LHR-BA34F722 C: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Tue Nov 24 2026 01:23:00.177 [Info] - lighthouse: Looking for default audio recording device matching VID:28de/PID:2102 Valve VR Radio & HMD Mic
+Tue Nov 24 2026 01:23:00.177 [Info] - lighthouse: Found default audio recording device Digital Audio Interface (2- Valve VR Radio & HMD Mic), VID:28de/PID:2102 {0.0.1.00000000}.{e22f7c3d-a3ef-4e0c-84a4-c4d730adadc9}
+Tue Nov 24 2026 01:23:00.187 [Info] - lighthouse: LHR-BA34F722 C: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 9
+Tue Nov 24 2026 01:23:00.242 [Info] - lighthouse: LHR-BA34F722 C: Saw demod rate 1446/s, enabling Sync on Beam
+Tue Nov 24 2026 01:23:00.242 [Info] - lighthouse: LHR-BA34F722 C: SwSyncDetect selected synconbeam
+Tue Nov 24 2026 01:23:00.388 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-5
+Tue Nov 24 2026 01:23:00.490 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-7 also seeing S-5
+Tue Nov 24 2026 01:23:00.535 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-1 also seeing S-5 S-7
+Tue Nov 24 2026 01:23:01.739 [Info] - lighthouse: Found default audio playback device Index HMD (NVIDIA High Definition Audio), VID:9659/PID:91a8 {0.0.0.00000000}.{73f4c8e4-a962-4a7d-a734-7b13c1a7ddd7}
+Tue Nov 24 2026 01:23:02.598 [Info] - lighthouse: LHR-BA34F722 C: ----- BOOTSTRAPPED base EE93C79B (best) distance 3.08m velocity 0.48m/s base pitch ~27.8 deg roll ~-2.9 deg -----
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: LHR-BA34F722 C: ----- CALIBRATED base EE93C79B at pitch 31.05 deg roll 1.48 deg -----
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: Updating tilt for EE93C79B:  Old= 29.13, -0.14, 6.40281e-06 <- 2.47 deg -> new= 31.05, 1.48, 8.77277e-06   result=31.05, 1.48, 8.77277e-06
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: Best tilt from LHR-BA34F722 for base EE93C79B pitch 31.05 roll 1.48 score 2.27
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: BootstrapFinished setting tilt base to EE93C79B
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: Selected existing universe 1749950692 (EE93C79B is secondary)
+Tue Nov 24 2026 01:23:03.584 [Info] - lighthouse: Setting universe tilt from EE93C79B via transform to global: pitch 37.35 deg roll 10.87 deg
+Tue Nov 24 2026 01:23:04.511 [Info] - lighthouse: LHR-329ADD4A H: No base stations seen...
+Tue Nov 24 2026 01:23:04.511 [Info] - lighthouse: LHR-329ADD4A H: No optical frames in past 5 seconds
+Tue Nov 24 2026 01:23:04.845 [Info] - lighthouse: LHR-BA34F722 C: ----- SECONDARY base A0CD6092 distance 3.21m -----
+Tue Nov 24 2026 01:23:09.365 [Info] - lighthouse: LHR-BA34F722 C: ----- SECONDARY base B3316995 distance 2.89m  -----
+Tue Nov 24 2026 01:23:23.140 [Info] - lighthouse: E518136DA0: Firmware Version 1592875850 watchman@valvebuilder01 2020-06-22 FPGA 538(2.26/7/2) BL 0 VRC 1592875850 Radio 1562882729
+Tue Nov 24 2026 01:23:23.700 [Info] - lighthouse: LHR-72E8FAE5: Applying scale 1.0034 from reference object lighthouse/HTC Tracker 3
+Tue Nov 24 2026 01:23:24.251 [Info] - lighthouse: LHR-BA34F722 C: Resetting tracking: no optical samples for 2001ms
+Tue Nov 24 2026 01:23:24.251 [Info] - lighthouse: LHR-BA34F722 C: Dropped 826 back-facing hits during the previous tracking session
+Tue Nov 24 2026 01:23:24.251 [Info] - lighthouse: Stopped tracking with universe 1749950692
+Tue Nov 24 2026 01:23:24.520 [Info] - lighthouse: LHR-72E8FAE5 C: ----- BOOTSTRAPPED base EE93C79B (best) distance 2.97m velocity 0.17m/s base pitch ~27.8 deg roll ~-2.9 deg -----
+Tue Nov 24 2026 01:23:24.791 [Info] - lighthouse: LHR-BA34F722 C: ----- BOOTSTRAPPED base B3316995 (best) distance 3.51m velocity 0.04m/s base pitch ~34.6 deg roll ~5.5 deg -----
+Tue Nov 24 2026 01:23:28.187 [Info] - lighthouse: Best tilt from LHR-BA34F722 for base B3316995 pitch 35.61 roll 6.56 score 2.95
+Tue Nov 24 2026 01:23:28.187 [Info] - lighthouse: BootstrapFinished setting tilt base to B3316995
+Tue Nov 24 2026 01:23:28.187 [Info] - lighthouse: Selected existing universe 1749950692 (B3316995 is primary)
+Tue Nov 24 2026 01:23:28.187 [Info] - lighthouse: Setting universe tilt from B3316995 via transform to global: pitch 35.61 deg roll 6.56 deg
+Tue Nov 24 2026 01:23:29.931 [Info] - lighthouse: 40E4AC9C61: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0 VRC 1693638519 Radio 1562882729
+Tue Nov 24 2026 01:23:30.320 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":1.87134504,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.60259402}
+Tue Nov 24 2026 01:23:30.320 [Info] - lighthouse: LHR-29C03CCA: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Left (MP)
+Tue Nov 24 2026 01:23:30.395 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_left\valve_controller_knu_1_0_left_low_res.obj for controller id 6 
+Tue Nov 24 2026 01:23:30.395 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new left controller device. id : 6 
+Tue Nov 24 2026 01:23:30.904 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-5
+Tue Nov 24 2026 01:23:30.947 [Info] - lighthouse: LHR-72E8FAE5 C: Resetting tracking: IMU misalignment unreasonably large (-8.5, -17, 2.1) deg sigma 0.81
+Tue Nov 24 2026 01:23:30.947 [Info] - lighthouse: LHR-72E8FAE5 C: Dropped 94 rejected updates, 121 back-facing hits during the previous tracking session
+Tue Nov 24 2026 01:23:31.009 [Info] - lighthouse: LHR-72E8FAE5 C: ----- BOOTSTRAPPED base B3316995 (immediate) distance 1.92m velocity 0.30m/s base pitch ~34.6 deg roll ~5.5 deg -----
+Tue Nov 24 2026 01:23:31.075 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-7 also seeing S-5
+Tue Nov 24 2026 01:23:31.154 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":0.61705279400000002,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.1080889700000001}
+Tue Nov 24 2026 01:23:31.154 [Info] - lighthouse: LHR-F19C1C47: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Right (MP)
+Tue Nov 24 2026 01:23:31.157 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_right\valve_controller_knu_1_0_right_low_res.obj for controller id 7 
+Tue Nov 24 2026 01:23:31.157 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new right controller device. id : 7 
+Tue Nov 24 2026 01:23:32.159 [Info] - lighthouse: Starting test
+Tue Nov 24 2026 01:23:33.678 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-5 (generation changed) also seeing S-7
+Tue Nov 24 2026 01:23:33.750 [Info] - lighthouse: LHR-F19C1C47 C: SOB: add S-5 (generation changed) also seeing S-7
+Tue Nov 24 2026 01:23:34.274 [Info] - lighthouse: LHR-29C03CCA C: ----- BOOTSTRAPPED base A0CD6092 (delayed) distance 3.47m velocity 0.07m/s base pitch ~33.5 deg roll ~-0.8 deg -----
+Tue Nov 24 2026 01:23:34.367 [Info] - lighthouse: LHR-F19C1C47 C: ----- BOOTSTRAPPED base A0CD6092 (delayed) distance 3.44m velocity 0.02m/s base pitch ~33.5 deg roll ~-0.8 deg -----
+Tue Nov 24 2026 01:23:34.565 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-7 seeing S-1 S-5
+Tue Nov 24 2026 01:23:40.231 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Tue Nov 24 2026 01:23:40.237 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Tue Nov 24 2026 01:23:40.398 [Info] - lighthouse: LHR-29C03CCA C: Trying to add a secondary base EE93C79B: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:23:41.288 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Tue Nov 24 2026 01:23:41.295 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Tue Nov 24 2026 01:28:46.534 [Info] - lighthouse: Device LHR-29C03CCA powering off upon entering standby.
+Tue Nov 24 2026 01:28:47.032 [Info] - lighthouse: 40E4AC9C61: Wireless controller LHR-29C03CCA disconnected
+Tue Nov 24 2026 01:28:47.032 [Info] - lighthouse: LHR-29C03CCA: Disconnected from receiver 40E4AC9C61
+Tue Nov 24 2026 01:28:47.032 [Info] - lighthouse: LHR-29C03CCA C: Dropped 95 back-facing hits during the previous tracking session
+Tue Nov 24 2026 01:28:47.846 [Info] - lighthouse: LHR-F19C1C47 C: Dropped 3 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 01:29:29.520 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-7 seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:32:53.900 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-7 seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:36:51.851 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 (B3316995) seeing S-5 (EE93C79B)
+Tue Nov 24 2026 01:36:52.664 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 (EE93C79B) seeing S-1 (B3316995)
+Tue Nov 24 2026 01:37:01.875 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-1 also seeing S-5 (EE93C79B)
+Tue Nov 24 2026 01:37:10.178 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: add S-5 also seeing S-1 (B3316995)
+Tue Nov 24 2026 01:37:13.767 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 seeing S-5 (EE93C79B)
+Tue Nov 24 2026 01:37:19.838 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-7 also seeing S-5 (EE93C79B)
+Tue Nov 24 2026 01:37:20.114 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 seeing S-1 (B3316995)
+Tue Nov 24 2026 01:37:20.415 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-1 also seeing S-5 (EE93C79B) S-7
+Tue Nov 24 2026 01:37:29.638 [Info] - lighthouse: LHR-BA34F722 C: Resetting tracking: no optical samples for 2003ms
+Tue Nov 24 2026 01:37:29.638 [Info] - lighthouse: LHR-BA34F722 C: Dropped 36203 back-facing hits, 8 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 01:37:36.081 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 seeing S-5 (EE93C79B) S-7
+Tue Nov 24 2026 01:37:36.496 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-5 (EE93C79B) seeing S-7
+Tue Nov 24 2026 01:37:36.704 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-7
+Tue Nov 24 2026 01:37:38.654 [Info] - lighthouse: LHR-BA34F722 C: SwSyncDetect Restart, primary: tdm, alt: framer.  SensorType 9
+Tue Nov 24 2026 01:37:41.822 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: add S-7 also seeing S-1 (B3316995) S-5
+Tue Nov 24 2026 01:37:44.272 [Info] - lighthouse: LHR-72E8FAE5 C: Resetting tracking: no optical samples for 2003ms
+Tue Nov 24 2026 01:37:44.272 [Info] - lighthouse: LHR-72E8FAE5 C: Dropped 26357 back-facing hits, 2 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 01:37:45.252 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 seeing S-1 (B3316995) S-7
+Tue Nov 24 2026 01:37:48.546 [Info] - lighthouse: LHR-72E8FAE5 C: ----- BOOTSTRAPPED base B3316995 (immediate) distance 2.21m base pitch ~34.6 deg roll ~5.5 deg -----
+Tue Nov 24 2026 01:37:49.397 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: add S-5 also seeing S-1 (B3316995) S-7
+Tue Nov 24 2026 01:37:50.082 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-7
+Tue Nov 24 2026 01:37:50.222 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-5 also seeing S-7
+Tue Nov 24 2026 01:37:50.320 [Info] - lighthouse: LHR-29C03CCA C: SOB: add S-1 also seeing S-5 S-7
+Tue Nov 24 2026 01:37:51.124 [Info] - lighthouse: LHR-29C03CCA C: ----- BOOTSTRAPPED base A0CD6092 (delayed) distance 3.72m velocity 0.03m/s base pitch ~33.5 deg roll ~-0.8 deg -----
+Tue Nov 24 2026 01:37:54.839 [Info] - lighthouse: LHR-F19C1C47 C: Trying to start tracking from base A0CD6092: Available samples not sufficient for booting (hits: 3+0)
+Tue Nov 24 2026 01:37:54.839 [Info] - lighthouse: LHR-F19C1C47 C: Trying to start tracking from base B3316995: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:37:54.839 [Info] - lighthouse: LHR-F19C1C47 C: Trying to start tracking from base EE93C79B: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:37:54.906 [Info] - lighthouse: LHR-BA34F722 C: Dropped 257 back-facing hits during the previous tracking session
+Tue Nov 24 2026 01:37:59.268 [Info] - lighthouse: LHR-BA34F722 C: Calibration failed: position out of bounds (1.2, -2.9, -6.3)
+Tue Nov 24 2026 01:37:59.840 [Info] - lighthouse: LHR-F19C1C47 C: Trying to add a secondary base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:37:59.840 [Info] - lighthouse: LHR-F19C1C47 C: Trying to add a secondary base B3316995: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:38:03.132 [Info] - lighthouse: LHR-329ADD4A H: Saw demod rate 408/s, enabling Sync on Beam
+Tue Nov 24 2026 01:38:03.132 [Info] - lighthouse: LHR-329ADD4A H: SwSyncDetect selected synconbeam
+Tue Nov 24 2026 01:38:04.624 [Info] - lighthouse: LHR-329ADD4A H: SOB: add S-7
+Tue Nov 24 2026 01:38:04.841 [Info] - lighthouse: LHR-F19C1C47 C: Trying to add a secondary base A0CD6092: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:38:09.698 [Info] - lighthouse: LHR-329ADD4A H: Trying to start tracking from base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:38:09.698 [Info] - lighthouse: LHR-329ADD4A H: Optical frames received again...
+Tue Nov 24 2026 01:38:09.843 [Info] - lighthouse: LHR-F19C1C47 C: Trying to add a secondary base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:38:12.319 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-7 seeing S-1 (B3316995) S-5
+Tue Nov 24 2026 01:38:12.761 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 seeing S-1 (B3316995)
+Tue Nov 24 2026 01:38:20.199 [Info] - lighthouse: Lost default audio playback Index HMD (NVIDIA High Definition Audio)
+Tue Nov 24 2026 01:38:20.251 [Info] - lighthouse: Lighthouse IMU HID device error
+Tue Nov 24 2026 01:38:20.251 [Info] - lighthouse: Lighthouse Optical HID device error
+Tue Nov 24 2026 01:38:20.251 [Info] - lighthouse: Lighthouse VrController HID device error
+Tue Nov 24 2026 01:38:20.269 [Info] - lighthouse: Lighthouse IMU HID device error
+Tue Nov 24 2026 01:38:20.284 [Info] - lighthouse: Lighthouse IMU HID device error
+Tue Nov 24 2026 01:38:22.811 [Info] - lighthouse: Lost default audio recording Digital Audio Interface (2- Valve VR Radio & HMD Mic)
+Tue Nov 24 2026 01:38:22.842 [Info] - lighthouse: Looking for default audio recording device matching VID:28de/PID:2102 Valve VR Radio & HMD Mic
+Tue Nov 24 2026 01:38:26.559 [Info] - lighthouse: LHR-72E8FAE5 C: Trying to start tracking from base B3316995: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:38:26.559 [Info] - lighthouse: LHR-72E8FAE5 C: Trying to start tracking from base EE93C79B: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:38:26.584 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 (B3316995) seeing S-5 S-7 (A0CD6092)
+Tue Nov 24 2026 01:38:27.887 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-7 (A0CD6092)
+Tue Nov 24 2026 01:38:29.837 [Info] - lighthouse: LHR-BA34F722 C: SwSyncDetect Restart, primary: tdm, alt: framer.  SensorType 9
+Tue Nov 24 2026 01:38:31.837 [Info] - lighthouse: LHR-D9015EEF: Read config of 2280 bytes from [vid:28de, pid:2300] (LHR-D9015EEF) and inflated to 11784 bytes
+Tue Nov 24 2026 01:38:31.837 [Info] - lighthouse: HMD Model: Bigscreen Beyond
+Tue Nov 24 2026 01:38:31.837 [Info] - lighthouse: INFO: firmware_config {"imu_rate":1000}
+Tue Nov 24 2026 01:38:31.837 [Info] - lighthouse: LHR-D9015EEF H: Source: auto disambiguator (right sync) -- Preferred basestation 00000000
+Tue Nov 24 2026 01:38:31.837 [Info] - lighthouse: RecommendedRenderTargetSize: 1920, 1920 (viewport 2688, 2688 scaled by 1.40)
+Tue Nov 24 2026 01:38:31.839 [Info] - lighthouse: Attempting HID Open IMU: LHR-D9015EEF
+Tue Nov 24 2026 01:38:31.843 [Info] - lighthouse: LHR-D9015EEF: Firmware Version 1641455124 WMBUILD-W64$@wmbuild-w64 2022-01-06 FPGA 538(2.26/7/2) BL 1641455124
+Tue Nov 24 2026 01:38:31.847 [Info] - lighthouse: UserData Error: Data request is out of range, request starting:0x0, ending:0x18, max address:0x0
+Tue Nov 24 2026 01:38:31.851 [Info] - lighthouse: LHR-D9015EEF: Successfully fetched gyro/accelerometer range modes from the device. GyroRangeMode:3 AccelRangeMode:2
+Tue Nov 24 2026 01:38:31.853 [Info] - lighthouse: Attempting HID Open Optical: LHR-D9015EEF
+Tue Nov 24 2026 01:38:31.853 [Info] - lighthouse: Lighthouse Optical HID opened
+Tue Nov 24 2026 01:38:31.858 [Info] - lighthouse: Attempting HID Open VrController: LHR-D9015EEF
+Tue Nov 24 2026 01:38:31.858 [Info] - lighthouse: Lighthouse VrController HID opened
+Tue Nov 24 2026 01:38:31.859 [Info] - lighthouse: InitTrackedCamera(): no ISP configurations specified in device json (LHR-D9015EEF). Camera services not available.
+Tue Nov 24 2026 01:38:34.517 [Info] - lighthouse: Stopped tracking with universe 1749950692
+Tue Nov 24 2026 01:38:35.232 [Info] - lighthouse: StopVideoStream
+Tue Nov 24 2026 01:38:35.232 [Info] - lighthouse: TrackedCamera: Stopping Video Stream.
+Tue Nov 24 2026 01:38:35.234 [Info] - lighthouse: TrackedCamera: Stopping Video Stream For Camera Shutdown.
+Tue Nov 24 2026 01:38:35.298 [Info] - lighthouse: TrackedCamera: OnWorkThread_CloseCamera()
+Tue Nov 24 2026 01:38:35.518 [Info] - lighthouse: [DepthAugmentedPassthrough] : Main processing thread fetching frame was stopped. CDepthAugmentedPassthrough is cleaned and can be destroyed safely 
+Tue Nov 24 2026 01:38:35.518 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is destroyed 
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: version 2.18.4
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: [DepthAugmentedPassthrough] supported on this system: 1
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is created 
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: Add Json firmware manifest from {htc}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: Add Json firmware manifest from {indexcontroller}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:38:42.239 [Info] - lighthouse: Add Json firmware manifest from {indexhmd}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:38:42.240 [Info] - lighthouse: Add Json firmware manifest from {lighthouse}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:38:42.240 [Info] - lighthouse: Add Json firmware manifest from {tundra_labs}/firmware/manifest.vrfirmware
+Tue Nov 24 2026 01:38:42.266 [Info] - lighthouse: Attached HID Devices:
+Tue Nov 24 2026 01:38:42.266 [Info] - lighthouse:     28DE, 2300: s/n LHR-D9015EEF: IMU (interface 0)
+Tue Nov 24 2026 01:38:42.266 [Info] - lighthouse:     28DE, 2102: s/n 0BDBF733E7-LYX: Valve VR Radio (interface 0)
+Tue Nov 24 2026 01:38:42.266 [Info] - lighthouse:     28DE, 2300: s/n LHR-D9015EEF: Controller (interface 2)
+Tue Nov 24 2026 01:38:42.266 [Info] - lighthouse:     28DE, 2300: s/n LHR-D9015EEF: Optical (interface 1)
+Tue Nov 24 2026 01:38:42.545 [Info] - lighthouse: HMD Model: Bigscreen Beyond
+Tue Nov 24 2026 01:38:42.545 [Info] - lighthouse: INFO: firmware_config {"imu_rate":1000}
+Tue Nov 24 2026 01:38:42.546 [Info] - lighthouse: Parsing LighthouseDB from file C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Tue Nov 24 2026 01:38:42.547 [Info] - lighthouse: Successfully parsed Lighthouse DB rev 61959 from C:\Program Files (x86)\Steam\config\lighthouse\lighthousedb.json
+Tue Nov 24 2026 01:38:42.547 [Info] - lighthouse: Enumerating displays...
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005: 0, 0, 2560, 1440
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006: 2560, 186, 1920, 1080
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004: -1920, 135, 1920, 1080
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse: Could not find monitor of expected size 3840 x 1920 Attached monitors: 3
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse:     0: x: 0, y: 0, w: 2560, h: 1440 edid: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse:     1: x: 2560, y: 186, w: 1920, h: 1080 edid: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006
+Tue Nov 24 2026 01:38:42.690 [Info] - lighthouse:     2: x: -1920, y: 135, w: 1920, h: 1080 edid: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004
+Tue Nov 24 2026 01:38:42.699 [Info] - lighthouse: UserData Error: Data request is out of range, request starting:0x0, ending:0x18, max address:0x0
+Tue Nov 24 2026 01:38:42.709 [Info] - lighthouse: InitTrackedCamera(): no ISP configurations specified in device json (LHR-D9015EEF). Camera services not available.
+Tue Nov 24 2026 01:38:42.712 [Info] - lighthouse: LHR-D9015EEF: Checking to see if display has connected...
+Tue Nov 24 2026 01:38:42.729 [Info] - lighthouse: Could not find monitor of expected size 3840 x 1920 Attached monitors: 3
+Tue Nov 24 2026 01:38:42.729 [Info] - lighthouse:     0: x: 0, y: 0, w: 2560, h: 1440 edid: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005
+Tue Nov 24 2026 01:38:42.729 [Info] - lighthouse:     1: x: 2560, y: 186, w: 1920, h: 1080 edid: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006
+Tue Nov 24 2026 01:38:42.729 [Info] - lighthouse:     2: x: -1920, y: 135, w: 1920, h: 1080 edid: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004
+Tue Nov 24 2026 01:38:42.729 [Info] - lighthouse: LHR-D9015EEF: Checking to see if display has connected...
+Tue Nov 24 2026 01:38:42.747 [Info] - lighthouse: Could not find monitor of expected size 3840 x 1920 Attached monitors: 3
+Tue Nov 24 2026 01:38:42.747 [Info] - lighthouse:     0: x: 0, y: 0, w: 2560, h: 1440 edid: MONITOR\GBT270D\{4d36e96e-e325-11ce-bfc1-08002be10318}\0005
+Tue Nov 24 2026 01:38:42.747 [Info] - lighthouse:     1: x: 2560, y: 186, w: 1920, h: 1080 edid: MONITOR\MSI1462\{4d36e96e-e325-11ce-bfc1-08002be10318}\0006
+Tue Nov 24 2026 01:38:42.747 [Info] - lighthouse:     2: x: -1920, y: 135, w: 1920, h: 1080 edid: MONITOR\ACR0E26\{4d36e96e-e325-11ce-bfc1-08002be10318}\0004
+Tue Nov 24 2026 01:38:43.599 [Info] - lighthouse: LHR-D9015EEF: Checking to see if display has connected...
+Tue Nov 24 2026 01:38:49.601 [Info] - lighthouse: 40E4AC9C61: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0
+Tue Nov 24 2026 01:38:49.760 [Info] - lighthouse: HMD Model: Bigscreen Beyond
+Tue Nov 24 2026 01:38:49.760 [Info] - lighthouse: INFO: firmware_config {"imu_rate":1000}
+Tue Nov 24 2026 01:38:49.934 [Info] - lighthouse: UserData Error: Data request is out of range, request starting:0x0, ending:0x18, max address:0x0
+Tue Nov 24 2026 01:38:49.943 [Info] - lighthouse: InitTrackedCamera(): no ISP configurations specified in device json (LHR-D9015EEF). Camera services not available.
+Tue Nov 24 2026 01:38:50.453 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":1.87134504,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.60259402}
+Tue Nov 24 2026 01:38:50.453 [Info] - lighthouse: LHR-29C03CCA: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Left (MP)
+Tue Nov 24 2026 01:38:59.999 [Info] - lighthouse: [DepthAugmentedPassthrough] : Object is destroyed 
+Tue Nov 24 2026 01:39:01.549 [Info] - lighthouse: 40E4AC9C61: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0
+Tue Nov 24 2026 01:39:09.732 [Info] - lighthouse: 40E4AC9C61: Firmware Version 1693638519 WMBUILD-W64$@wmbuild-w64 2023-09-02 FPGA 538(2.26/10/2) BL 0
+Tue Nov 24 2026 01:40:20.021 [Info] - lighthouse: LHR-D9015EEF: Triggered keepalive (failed)
+Tue Nov 24 2026 01:40:22.594 [Info] - lighthouse: Lighthouse Optical HID device error
+Tue Nov 24 2026 01:40:22.594 [Info] - lighthouse: Lighthouse VrController HID device error
+Tue Nov 24 2026 01:40:33.692 [Info] - lighthouse: LHR-D9015EEF: Triggered keepalive (failed)
+Tue Nov 24 2026 01:40:36.249 [Info] - lighthouse: Lighthouse Optical HID device error
+Tue Nov 24 2026 01:40:36.255 [Info] - lighthouse: Lighthouse VrController HID device error
+Tue Nov 24 2026 01:43:24.910 [Info] - lighthouse: LHR-D9015EEF: Triggered keepalive (failed)
+Tue Nov 24 2026 01:43:29.109 [Info] - lighthouse: <hidden>: 0, 0, 0, 0
+Tue Nov 24 2026 01:43:29.119 [Info] - lighthouse: Setting Edid VendorID 2709 and product ID 1234 from json
+Tue Nov 24 2026 01:43:29.154 [Info] - lighthouse: Unable to query MC Image size
+Tue Nov 24 2026 01:43:29.154 [Info] - lighthouse: Not generating hidden area meshes for unknown hidden area mode 0
+Tue Nov 24 2026 01:43:29.156 [Info] - lighthouse: LHR-D9015EEF H: SwSyncDetect Start, primary: tdm, alt: framer.  SensorType 257
+Tue Nov 24 2026 01:43:29.156 [Info] - lighthouse: LHR-D9015EEF H: Warning: TDM sensorType NotYetAvailable
+Tue Nov 24 2026 01:43:29.232 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_left\valve_controller_knu_1_0_left_low_res.obj for controller id 1 
+Tue Nov 24 2026 01:43:29.232 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new left controller device. id : 1 
+Tue Nov 24 2026 01:43:29.289 [Info] - lighthouse: Looking for default audio recording device matching VID:35bd/PID:0101 Beyond
+Tue Nov 24 2026 01:43:29.658 [Info] - lighthouse: LHR-D9015EEF H: TDM sensorType changed to: 9
+Tue Nov 24 2026 01:43:29.658 [Info] - lighthouse: LHR-D9015EEF H: TDM sensorType changed to: 9
+Tue Nov 24 2026 01:43:29.726 [Info] - lighthouse: LHR-D9015EEF H: Saw demod rate 2316/s, enabling Sync on Beam
+Tue Nov 24 2026 01:43:29.726 [Info] - lighthouse: LHR-D9015EEF H: SwSyncDetect selected synconbeam
+Tue Nov 24 2026 01:43:29.880 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-1
+Tue Nov 24 2026 01:43:29.899 [Info] - lighthouse: Looking for default audio recording device matching VID:35bd/PID:0101 Beyond
+Tue Nov 24 2026 01:43:29.926 [Info] - lighthouse: Found default audio recording device Microphone (3- Beyond), VID:35bd/PID:0101 {0.0.1.00000000}.{5971b433-c0c8-408d-925d-774af5f7e8e1}
+Tue Nov 24 2026 01:43:29.976 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-5 also seeing S-1
+Tue Nov 24 2026 01:43:32.828 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-7 also seeing S-1 S-5
+Tue Nov 24 2026 01:43:34.660 [Info] - lighthouse: LHR-D9015EEF H: Trying to start tracking from base B3316995: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:43:35.740 [Info] - lighthouse: Selected existing universe 1749950692 (B3316995 is primary)
+Tue Nov 24 2026 01:43:37.204 [Info] - lighthouse: Started pairing dongle serial=0BDBF733E7-LYX timeout=10.000000
+Tue Nov 24 2026 01:43:37.474 [Info] - lighthouse: LHR-D9015EEF H: ----- BOOTSTRAPPED base EE93C79B (delayed) distance 2.58m velocity 0.02m/s base pitch ~27.8 deg roll ~-2.9 deg -----
+Tue Nov 24 2026 01:43:38.559 [Info] - lighthouse: LHR-D9015EEF H: ----- CALIBRATED base EE93C79B at pitch 28.64 deg roll -2.69 deg -----
+Tue Nov 24 2026 01:43:39.841 [Info] - lighthouse: LHR-D9015EEF H: Resetting tracking: IMU misalignment unreasonably large (4, -11, -9.8) deg sigma 2.4
+Tue Nov 24 2026 01:43:39.841 [Info] - lighthouse: LHR-D9015EEF H: Dropped 49 back-facing hits during the previous tracking session
+Tue Nov 24 2026 01:43:41.853 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-7 seeing S-1 S-5
+Tue Nov 24 2026 01:43:42.197 [Info] - lighthouse: Started pairing dongle serial=0BDBF733E7-LYX timeout=10.000000
+Tue Nov 24 2026 01:43:42.347 [Info] - lighthouse: LHR-D9015EEF H: ----- BOOTSTRAPPED base EE93C79B (delayed) distance 2.57m velocity 0.42m/s base pitch ~27.8 deg roll ~-2.9 deg -----
+Tue Nov 24 2026 01:43:43.413 [Info] - lighthouse: LHR-D9015EEF H: ----- CALIBRATED base EE93C79B at pitch 29.40 deg roll -2.54 deg -----
+Tue Nov 24 2026 01:43:44.051 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Tue Nov 24 2026 01:43:44.058 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.4b5271caaae239f8a99a8205b3d0e029.vrstats
+Tue Nov 24 2026 01:43:44.843 [Info] - lighthouse: LHR-D9015EEF H: Trying to add a secondary base B3316995: Samples didn't yield successful bootstrap pose
+Tue Nov 24 2026 01:44:00.671 [Info] - lighthouse: INFO: firmware_config {"fsr_grip_A":-0.25499999499999998,"fsr_grip_B":0.920000017,"fsr_grip_C":0.27720001300000002,"fsr_grip_D":0.61705279400000002,"fsr_thumb_A":-0.24500000499999999,"fsr_thumb_B":0.91000002599999996,"fsr_thumb_C":0.26919999700000002,"fsr_thumb_D":1.1080889700000001}
+Tue Nov 24 2026 01:44:00.671 [Info] - lighthouse: LHR-F19C1C47: Applying scale 0.9990 from reference object lighthouse/Vive Knuckles Right (MP)
+Tue Nov 24 2026 01:44:00.685 [Info] - lighthouse: [DepthAugmentedPassthrough] : Grabbing model at path C:\Program Files (x86)\Steam\steamapps\common\SteamVR\drivers\indexcontroller\resources\rendermodels\valve_controller_knu_1_0_right\valve_controller_knu_1_0_right_low_res.obj for controller id 5 
+Tue Nov 24 2026 01:44:00.685 [Info] - lighthouse: [DepthAugmentedPassthrough] : Registered a new right controller device. id : 5 
+Tue Nov 24 2026 01:44:03.727 [Info] - lighthouse: LHR-D9015EEF H: ----- SECONDARY base B3316995 distance 1.68m -----
+Tue Nov 24 2026 01:44:03.972 [Info] - lighthouse: LHR-D9015EEF H: ----- RELATIONSHIP bases EE93C79B <-> b3316995 distance 2.78m, angle 40.34 deg -----
+Tue Nov 24 2026 01:44:03.972 [Info] - lighthouse: Moving base EE93C79B 67mm and 1.3 deg because of relationship with B3316995, which is closer to the origin
+Tue Nov 24 2026 01:44:03.972 [Info] - lighthouse: ... Moving the base for tracking too, which might cause a pop
+Tue Nov 24 2026 01:44:04.000 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-7 also seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:44:04.646 [Info] - lighthouse: LHR-D9015EEF H: ----- SECONDARY base A0CD6092 distance 3.03m  -----
+Tue Nov 24 2026 01:44:08.927 [Info] - lighthouse: E518136DA0: Firmware Version 1592875850 watchman@valvebuilder01 2020-06-22 FPGA 538(2.26/7/2) BL 0 VRC 1592875850 Radio 1562882729
+Tue Nov 24 2026 01:44:09.538 [Info] - lighthouse: LHR-72E8FAE5: Applying scale 1.0034 from reference object lighthouse/HTC Tracker 3
+Tue Nov 24 2026 01:44:14.627 [Info] - lighthouse: DE32DA2B61: Firmware Version 1592875850 watchman@valvebuilder01 2020-06-22 FPGA 538(2.26/7/2) BL 0 VRC 1592875850 Radio 1562882729
+Tue Nov 24 2026 01:44:18.464 [Info] - lighthouse: LHR-BA34F722 C: Calibration failed: no optical samples from base A0CD6092 for 2000ms
+Tue Nov 24 2026 01:44:19.263 [Info] - lighthouse: Reading persistent statistics file from C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Tue Nov 24 2026 01:44:19.267 [Info] - lighthouse: Updating C:\Program Files (x86)\Steam\logs\index.386f16df33d260520492211e5a1e1f91.vrstats
+Tue Nov 24 2026 01:44:57.497 [Info] - lighthouse: E518136DA0: Triggered keepalive (failed)
+Tue Nov 24 2026 01:45:01.141 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-5 (EE93C79B) seeing S-7 (A0CD6092)
+Tue Nov 24 2026 01:45:02.319 [Info] - lighthouse: LHR-D9015EEF H: Assertion failed:  Explicit right sync does not match pending frame
+Tue Nov 24 2026 01:45:02.319 [Info] - lighthouse: LHR-D9015EEF H: Assertion failed:  Explicit right sync does not match pending frame
+Tue Nov 24 2026 01:45:05.315 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-5 also seeing S-1 S-7 (A0CD6092)
+Tue Nov 24 2026 01:45:06.516 [Info] - lighthouse: LHR-BA34F722 C: Resetting tracking: position out of bounds (3.7, -1.8, -5.7)
+Tue Nov 24 2026 01:45:09.026 [Info] - lighthouse: LHR-BA34F722 C: Calibration failed: no optical samples from base B3316995 for 2002ms
+Tue Nov 24 2026 01:45:14.036 [Info] - lighthouse: LHR-BA34F722 C: Trying to start tracking from base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:45:15.576 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-5 seeing S-1 S-7 (A0CD6092)
+Tue Nov 24 2026 01:45:15.762 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-7 seeing S-1
+Tue Nov 24 2026 01:45:16.927 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-5 also seeing S-1 S-7 (A0CD6092)
+Tue Nov 24 2026 01:45:25.417 [Info] - lighthouse: LHR-72E8FAE5 C: Trying to start tracking from base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:45:26.585 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-7 (A0CD6092) seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:45:32.435 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-7 also seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:45:35.686 [Info] - lighthouse: LHR-F290968A C: Resetting tracking: no optical samples from base EE93C79B for 2000ms
+Tue Nov 24 2026 01:45:40.692 [Info] - lighthouse: LHR-F290968A C: Trying to add a secondary base A0CD6092: Not enough contiguous samples for a bootstrap pose
+Tue Nov 24 2026 01:45:42.142 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 (B3316995)
+Tue Nov 24 2026 01:45:44.112 [Info] - lighthouse: LHR-BA34F722 C: SwSyncDetect Restart, primary: tdm, alt: framer.  SensorType 9
+Tue Nov 24 2026 01:46:18.013 [Info] - lighthouse: LHR-F290968A C: SOB: add S-7 (generation changed) also seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:46:20.427 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-5 seeing S-1 S-7
+Tue Nov 24 2026 01:46:20.635 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 seeing S-7
+Tue Nov 24 2026 01:46:24.829 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-7 (A0CD6092) seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:46:39.953 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-1 seeing S-7
+Tue Nov 24 2026 01:46:40.317 [Info] - lighthouse: LHR-BA34F722 C: SOB: drop S-7
+Tue Nov 24 2026 01:46:48.972 [Info] - lighthouse: LHR-BA34F722 C: No optical frames in past 5 seconds
+Tue Nov 24 2026 01:47:06.825 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-7 also seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:47:08.985 [Info] - lighthouse: LHR-BA34F722 C: Optical frames received again...
+Tue Nov 24 2026 01:47:31.419 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-1 (B3316995) seeing S-5 (EE93C79B) S-7
+Tue Nov 24 2026 01:47:36.182 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 (EE93C79B) seeing S-7
+Tue Nov 24 2026 01:47:56.116 [Info] - lighthouse: LHR-72E8FAE5 C: Resetting tracking: no optical samples from base A0CD6092 for 2000ms
+Tue Nov 24 2026 01:48:00.482 [Info] - lighthouse: LHR-F290968A C: SOB: add S-5 also seeing S-1 S-7 (A0CD6092)
+Tue Nov 24 2026 01:48:03.169 [Info] - lighthouse: LHR-72E8FAE5 C: Calibration failed: no optical samples from base B3316995 for 2003ms
+Tue Nov 24 2026 01:48:09.100 [Info] - lighthouse: LHR-F290968A C: SOB: drop S-7 (A0CD6092) seeing S-1 (B3316995) S-5
+Tue Nov 24 2026 01:48:46.357 [Info] - lighthouse: LHR-72E8FAE5 C: Resetting tracking: no optical samples from base B3316995 for 2001ms
+Tue Nov 24 2026 01:49:01.061 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-7 seeing S-1 (B3316995) S-5 (EE93C79B)
+Tue Nov 24 2026 01:49:18.863 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-5 (EE93C79B) seeing S-1 (B3316995) S-7
+Tue Nov 24 2026 01:49:19.077 [Info] - lighthouse: LHR-F19C1C47 C: SOB: drop S-5 (EE93C79B) seeing S-1 (B3316995) S-7
+Tue Nov 24 2026 01:49:28.069 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-5 also seeing S-1 (B3316995) S-7
+Tue Nov 24 2026 01:49:37.266 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-5 seeing S-1 (B3316995) S-7 (A0CD6092)
+Tue Nov 24 2026 01:49:53.029 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-5 seeing S-1 (B3316995) S-7 (A0CD6092)
+Tue Nov 24 2026 01:49:57.989 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: add S-1 (generation changed) also seeing S-7 (A0CD6092)
+Tue Nov 24 2026 01:51:45.368 [Info] - lighthouse: LHR-29C03CCA C: LighthouseDirect: Optical data at time 582.938088 < filter at 582.952171
+Tue Nov 24 2026 01:51:45.373 [Info] - lighthouse: LHR-29C03CCA C: LighthouseDirect: Optical data at time 582.938404 < filter at 582.952171
+Tue Nov 24 2026 01:51:45.373 [Info] - lighthouse: LHR-29C03CCA C: LighthouseDirect: Optical data at time 582.944593 < filter at 582.952171
+Tue Nov 24 2026 01:52:32.153 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: add S-1 (generation changed) also seeing S-7 (A0CD6092)
+Tue Nov 24 2026 01:52:32.601 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-5 (generation changed) also seeing S-1 (B3316995) S-7 (A0CD6092)
+Tue Nov 24 2026 01:53:06.827 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-1 seeing S-5 S-7 (A0CD6092)
+Tue Nov 24 2026 01:55:57.089 [Info] - lighthouse: LHR-F290968A C: SOB: add S-1 (generation changed) also seeing S-5 (EE93C79B) S-7 (A0CD6092)
+Tue Nov 24 2026 01:56:09.035 [Info] - lighthouse: LHR-BA34F722 C: SOB: add S-1 (generation changed) also seeing S-5 (EE93C79B) S-7 (A0CD6092)
+Tue Nov 24 2026 02:01:16.853 [Info] - lighthouse: LHR-72E8FAE5 C: Dropped 1 rejected updates, 17818 back-facing hits, 9 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 02:01:18.789 [Info] - lighthouse: LHR-29C03CCA C: Dropped 60379 back-facing hits, 8 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 02:01:23.283 [Info] - lighthouse: LHR-D9015EEF H: SOB: drop S-5 (EE93C79B) seeing S-7 (A0CD6092)
+Tue Nov 24 2026 02:01:24.144 [Info] - lighthouse: LHR-72E8FAE5 C: SOB: drop S-5 (EE93C79B)
+Tue Nov 24 2026 02:01:28.702 [Info] - lighthouse: LHR-BA34F722 C: Resetting tracking: IMU misalignment unreasonably large (-11, 8.7, -6) deg sigma 1.1
+Tue Nov 24 2026 02:01:28.702 [Info] - lighthouse: LHR-BA34F722 C: Dropped 14 rejected updates, 3 back-facing hits during the previous tracking session
+Tue Nov 24 2026 02:01:29.768 [Info] - lighthouse: LHR-D9015EEF H: Resetting tracking: no optical samples for 2000ms
+Tue Nov 24 2026 02:01:29.768 [Info] - lighthouse: LHR-D9015EEF H: Dropped 369494 back-facing hits, 4 non-clustered hits during the previous tracking session
+Tue Nov 24 2026 02:01:29.860 [Info] - lighthouse: LHR-F19C1C47 C: Resetting tracking: IMU misalignment unreasonably large (6.4, 8, -13) deg sigma 2.8
+Tue Nov 24 2026 02:01:29.890 [Info] - lighthouse: LHR-F19C1C47 C: Trying to start tracking from base A0CD6092: Bootstrap failed because no IMU data was available
+Tue Nov 24 2026 02:01:33.807 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-5 also seeing S-7 (A0CD6092)
+Tue Nov 24 2026 02:01:33.856 [Info] - lighthouse: LHR-D9015EEF H: SOB: add S-1 also seeing S-5 S-7 (A0CD6092)
+Tue Nov 24 2026 02:01:34.300 [Info] - lighthouse: LHR-D9015EEF H: ----- BOOTSTRAPPED base A0CD6092 (delayed) distance 3.14m velocity 0.62m/s base pitch ~33.5 deg roll ~-0.8 deg -----
+Tue Nov 24 2026 02:01:38.982 [Info] - lighthouse: LHR-D9015EEF H: Calibration failed: no optical samples from base A0CD6092 for 2001ms
+Tue Nov 24 2026 02:01:38.982 [Info] - lighthouse: LHR-D9015EEF H: Dropped 46 back-facing hits during the previous tracking session
+Tue Nov 24 2026 02:01:39.139 [Info] - lighthouse: LHR-D9015EEF H: ----- BOOTSTRAPPED base EE93C79B (immediate) distance 2.94m velocity 0.26m/s base pitch ~27.8 deg roll ~-2.9 deg -----
+Tue Nov 24 2026 02:01:40.793 [Info] - lighthouse: LHR-D9015EEF H: ----- SECONDARY base B3316995 distance 2.45m -----
+Tue Nov 24 2026 02:01:40.862 [Info] - lighthouse: LHR-D9015EEF H: ----- SECONDARY base A0CD6092 distance 2.30m  -----
+Tue Nov 24 2026 03:19:22.287 [Info] - lighthouse: LHR-D9015EEF H: Dropped 2032568 back-facing hits, 164 non-clustered hits during the previous tracking session
