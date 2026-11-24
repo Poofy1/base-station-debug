@@ -241,6 +241,12 @@ class SimSource:
         self._log = []
         return out
 
+    def play_area(self) -> dict | None:
+        r = 1.5
+        corners = [[r, 0.0, -r], [-r, 0.0, -r], [-r, 0.0, r], [r, 0.0, r]]
+        return {"rect": corners, "bounds": [[-1.8, 0.0, -1.7], [-1.7, 0.0, 1.8], [1.8, 0.0, 1.9], [1.9, 0.0, -1.6]],
+                "height": 2.4}
+
     def close(self) -> None:
         self._closed = True
 

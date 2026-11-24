@@ -137,6 +137,7 @@ class Cause(str, Enum):
     USB = "usb"
     BATTERY = "battery"
     CALIBRATION = "calibration"       # universe / tilt / room setup changed
+    RANGE = "range"                   # too far from the base stations
     UNKNOWN = "unknown"
 
 

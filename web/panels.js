@@ -1,9 +1,6 @@
 // DOM panels: device cards, diagnosis (findings), incident detail, log tail, tooltip.
 
-import {
-  STATES, GROUPS, trackingState, kindInfo, causeLabel, resultName, logSummary,
-  fmtClock, fmtDuration, pct, h, clamp,
-} from './util.js';
+import { STATES, GROUPS, trackingState, kindInfo, causeLabel, resultName, logSummary, fmtClock, fmtDuration, pct, h, clamp, dist3, rangeLevel } from './util.js';
 
 // ---------------------------------------------------------------- tooltip
 let tipEl = null;
@@ -54,6 +51,7 @@ export class DeviceCards {
     this.empty.hidden = this.cards.size > 0;
     if (now - this._lastDraw < 240) return;
     this._lastDraw = now;
+    this._bases = bases || [];
     this._spark = !this._spark;
     const slots = (bases || []).map((b) => (b.channel != null ? `S-${b.channel}` : b.serial)).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
     for (const c of this.cards.values()) {
@@ -71,9 +69,9 @@ export class DeviceCards {
         (f.badge = h('span.state'))),
       (f.alert = h('p.device-alert', { hidden: true })),
       h('dl.metrics',
-        metric('rate', 'Update rate'), metric('jitter', 'Jitter'),
+        metric('rate', 'Rate'), metric('jitter', 'Jitter'),
         metric('battery', 'Battery'), metric('dongle', 'Dongle'),
-        h('div.metric.wide', h('dt', 'Bases seen'), (f.bases = h('dd.bases')))),
+        h('div.metric.wide', h('dt', 'Bases'), (f.bases = h('dd.bases')))),
       h('div.spark', (f.canvas = h('canvas', { 'aria-hidden': 'true', title: 'Line: jitter over the last 60 s. Strip underneath: tracking state over the same time.' })), (f.sparkCap = h('p.spark-cap'))));
     el.addEventListener('click', () => this.onSelectDevice(d.serial));
     el.addEventListener('keydown', (e) => { if (e.key === 'Enter') this.onSelectDevice(d.serial); });
@@ -98,9 +96,13 @@ export class DeviceCards {
     else if (c.state === 'degraded') alert = d.result !== 200 ? `▲ ${resultName(d.result)}` : `▲ Only ${pct(d.ok_frac ?? 0)} of recent samples OK`;
     if (c.shown.alert !== alert) {
       c.shown.alert = alert;
-      f.alert.textContent = alert; f.alert.hidden = !alert;
+      f.alert.hidden = true;
       c.el.classList.toggle('has-incident', !!d.incident);
     }
+    // An open incident replaces the model line instead of adding a row, so every
+    // card keeps the same height whatever its state.
+    if (alert) { f.sub.textContent = alert; c.shown.sub = alert; }
+    f.sub.classList.toggle('is-alert', !!alert);
     const tracked = d.connected;
     set('rate', f.rate, tracked && d.update_hz != null ? `${Math.round(d.update_hz)} Hz` : '–');
     set('jitter', f.jitter, tracked && d.ok && d.jitter_mm != null ? `${d.jitter_mm.toFixed(d.jitter_mm < 10 ? 1 : 0)} mm` : '–');
@@ -123,12 +125,23 @@ export class DeviceCards {
     set('dongle', f.dongle, d.dongle || (d.class === 'hmd' ? 'tethered' : '–'));
     const seenSet = new Set(d.bases_seen || []);
     const all = [...new Set([...slots, ...seenSet])];
-    const basesKey = all.map((s) => (seenSet.has(s) ? '+' : '-') + s).join(' ');
+    const distOf = new Map();
+    for (const b of this._bases || []) {
+      if (b.valid === false || !d.connected) continue;
+      distOf.set(b.channel != null ? `S-${b.channel}` : b.serial, dist3(d.pos, b.pos));
+    }
+    const basesKey = all.map((s) => (seenSet.has(s) ? '+' : '-') + s + (distOf.has(s) ? distOf.get(s).toFixed(1) : '')).join(' ');
     if (c.shown.bases !== basesKey) {
       c.shown.bases = basesKey;
       f.bases.replaceChildren(
-        ...all.map((s) => h('span.base-chip', { dataset: { on: seenSet.has(s) ? '1' : '0' }, title: seenSet.has(s) ? `${s}: visible` : `${s}: not visible` }, s)),
-        h('span.base-count', all.length ? `${seenSet.size} of ${all.length}` : 'none'));
+        ...all.map((s) => {
+          const m = distOf.get(s);
+          const level = m == null ? 'ok' : rangeLevel(m);
+          const where = m == null ? '' : `, ${m.toFixed(1)} m away${level === 'ok' ? '' : level === 'warn' ? ' (long range: expect more jitter)' : ' (at the edge of its reach)'}`;
+          return h('span.base-chip', { dataset: { on: seenSet.has(s) ? '1' : '0', range: level }, title: `${s}: ${seenSet.has(s) ? 'visible' : 'not visible'}${where}` },
+            s, m == null ? null : h('span.base-dist', `${m.toFixed(1)} m`));
+        }),
+        h('span.base-count', all.length ? `${seenSet.size}/${all.length}` : 'none'));
     }
   }
 

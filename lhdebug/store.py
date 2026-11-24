@@ -90,6 +90,18 @@ class Store:
                         (ev.t, ev.kind.value, ev.serial, ev.level, json.dumps(ev.data), ev.raw))
         self._bump(1)
 
+    def prune(self, cutoff: float) -> None:
+        """Drop everything older than `cutoff` (rolling window)."""
+        self.db.execute("DELETE FROM samples WHERE t < ?", (cutoff,))
+        self.db.execute("DELETE FROM incidents WHERE t_end < ?", (cutoff,))
+        self.db.execute("DELETE FROM log_events WHERE t < ?", (cutoff,))
+        self.flush()
+
+    def clear(self) -> None:
+        for table in ("samples", "incidents", "log_events"):
+            self.db.execute(f"DELETE FROM {table}")
+        self.flush()
+
     def _bump(self, n: int) -> None:
         self._pending += n
         if self._pending >= 500:

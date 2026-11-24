@@ -137,6 +137,11 @@ export class MockTransport {
     this.session = {
       id: 'mock-' + new Date().toISOString().slice(0, 19).replace(/[-:T]/g, ''),
       mode: 'sim', started: this.started, steamvr: this.steamvr, voxel: VOXEL,
+      recording: true, paused_at: null, window_s: 900,
+      play_area: {
+        rect: [[1.5, 0, -1.5], [-1.5, 0, -1.5], [-1.5, 0, 1.5], [1.5, 0, 1.5]],
+        bounds: [[-1.8, 0, -1.7], [-1.7, 0, 1.8], [1.8, 0, 1.9], [1.9, 0, -1.6]], height: 2.4,
+      },
     };
     this.emitting = false;
     this.baseShiftDone = false;
@@ -155,6 +160,14 @@ export class MockTransport {
         this._boot(this.started);
         for (let t = this.started; t < now - 0.05; t += 0.1) this._step(t);
       }
+      // recording controls: while stopped, only state messages get through
+      const emit = this.onMessage;
+      this.onMessage = (m) => {
+        if (!m) return;
+        if (!this.session.recording && ['incident', 'log', 'findings'].includes(m.type)) return;
+        if (m.type === 'state') m.recording = this.session.recording;
+        emit(m);
+      };
       this.emitting = true;
       this.onStatus({ state: 'open' });
       this.onMessage({ type: 'hello', session: { ...this.session } });
@@ -162,6 +175,22 @@ export class MockTransport {
       setInterval(() => this.onMessage(this._step(Date.now() / 1000)), 100);
       setInterval(() => this.onMessage({ type: 'findings', findings: this._findings() }), 5000);
     }, 150);
+  }
+
+  async postJSON(path, body) {
+    if (this.down) throw new Error('mock backend is down');
+    if (path !== '/api/control') throw new Error(`${path}: HTTP 404`);
+    const s = this.session;
+    if (body.action === 'stop') { s.recording = false; s.paused_at = Date.now() / 1000; }
+    if (body.action === 'resume') { s.recording = true; s.paused_at = null; }
+    if (body.action === 'clear') {
+      this.incidents = []; this.log = []; this.cells = new Map();
+      if (s.paused_at != null) s.paused_at = Date.now() / 1000;
+      this.onMessage({ type: 'cleared' });
+    }
+    if (body.window_s != null) s.window_s = Number(body.window_s);
+    this.onMessage({ type: 'session', session: { ...s } });
+    return { ...s };
   }
 
   async getJSON(path) {
@@ -174,6 +203,16 @@ export class MockTransport {
       case '/api/heatmap': return this._heatmap(p.get('metric') || 'dropout', p.get('serial') || null);
       case '/api/incidents': return { incidents: this.incidents.slice(-Number(p.get('limit') || 200)).reverse() };
       case '/api/log': return { events: this.log.slice(-Number(p.get('limit') || 300)).reverse() };
+      case '/api/range': {
+        const rows = (k, top) => Array.from({ length: top }, (_, i) => ({
+          d: 0.75 + i * 0.5, n: 400 - i * 30,
+          jitter_mm: +(0.15 + 0.12 * k * (0.75 + i * 0.5) ** (k > 1.5 ? 1.6 : 1)).toFixed(3),
+          ok_frac: +(1 - Math.max(0, i - 6) * 0.06).toFixed(3),
+        }));
+        const series = { nearest: rows(1, 10) };
+        BASES.forEach((b, i) => { series[b.serial] = rows(i === 2 ? 1.8 : 1 + i * 0.1, 11 - i); });
+        return { bin: 0.5, nearest_key: 'nearest', warn_m: 5, series };
+      }
       case '/api/findings': return { findings: this._findings() };
       case '/api/lighthousedb': return {
         bases: Object.fromEntries(BASES.map((b) => [b.serial, { serial: b.serial, channel: b.channel }])),

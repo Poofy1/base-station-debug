@@ -42,8 +42,8 @@ export const GROUPS = {
 export const kindInfo = (k) => KINDS[k] || { label: String(k), code: String(k).slice(0, 5).toUpperCase(), group: 'quality' };
 
 export const CAUSES = {
-  occlusion: 'Occlusion', radio: 'Radio link', base_station: 'Base station',
-  reflection: 'Reflection', imu: 'IMU', usb: 'USB', battery: 'Battery',
+  range: 'Out of range', occlusion: 'Occlusion', radio: 'Radio link', base_station: 'Base station',
+  reflection: 'Reflection', imu: 'Motion sensor (IMU)', usb: 'USB', battery: 'Battery',
   calibration: 'Calibration', unknown: 'Unknown',
 };
 export const causeLabel = (c) => CAUSES[c] || String(c);
@@ -171,5 +171,10 @@ export const NOTABLE_LOG = new Set([
   'sync_assert', 'universe_changed', 'server_start',
 ]);
 export const isNotableLog = (ev) => ev.level === 'Warning' || ev.level === 'Error' || NOTABLE_LOG.has(ev.kind);
+
+// Lighthouse 2.0 reach: tracking gets noticeably weaker past ~5 m and is rated to ~7 m.
+export const RANGE_WARN_M = 5, RANGE_FAR_M = 6.5;
+export const rangeLevel = (m) => (m > RANGE_FAR_M ? 'far' : m > RANGE_WARN_M ? 'warn' : 'ok');
+export const dist3 = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 
 export const clamp = (v, a, b) => Math.min(b, Math.max(a, v));

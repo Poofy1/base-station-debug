@@ -4,7 +4,7 @@ from __future__ import annotations
 import asyncio
 from pathlib import Path
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import Body, FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -23,6 +23,24 @@ def create_app(engine: Engine, sessions_dir: Path) -> FastAPI:
 
     @app.get("/api/session")
     def session():
+        return engine.session_info()
+
+    @app.post("/api/control")
+    def control(cmd: dict = Body(...)):
+        action = cmd.get("action")
+        if action == "stop":
+            engine.set_recording(False)
+        elif action == "resume":
+            engine.set_recording(True)
+        elif action == "clear":
+            engine.clear()
+        elif action is not None:
+            return JSONResponse({"error": f"unknown action {action!r}"}, status_code=400)
+        if cmd.get("window_s") is not None:
+            try:
+                engine.set_window(float(cmd["window_s"]))
+            except (TypeError, ValueError):
+                return JSONResponse({"error": "window_s must be a number"}, status_code=400)
         return engine.session_info()
 
     @app.get("/api/heatmap")
@@ -46,6 +64,10 @@ def create_app(engine: Engine, sessions_dir: Path) -> FastAPI:
     @app.get("/api/findings")
     def findings():
         return {"findings": engine.findings()}
+
+    @app.get("/api/range")
+    def range_profile():
+        return engine.range_snapshot()
 
     @app.get("/api/lighthousedb")
     def lighthousedb():

@@ -53,6 +53,7 @@
         <button type="button" class="toggle" data-layer="heatmap" aria-pressed="true">Heatmap</button>
         <button type="button" class="toggle" data-layer="fov" aria-pressed="true">Base FOV</button>
         <button type="button" class="toggle" data-layer="trails" aria-pressed="true">Trails</button>
+        <button type="button" class="toggle" data-layer="range" aria-pressed="true" title="Lines from each device to its nearest base station, with the distance. Pick a device to see all its bases.">Range</button>
         <button type="button" class="toggle" data-layer="incidents" aria-pressed="true">Incidents</button>
         <button type="button" class="btn" id="btn-reset" title="Reset the camera">Reset view</button>
       </div>
@@ -106,26 +107,34 @@
         <span><i class="key-mark k-geometry"></i>Room geometry</span>
         <span><i class="key-mark k-log"></i>Log event</span>
       </div>
-      <label class="field inline">Window
+      <button type="button" class="btn rec-btn" id="btn-rec" aria-pressed="true" title="Stop recording to freeze the timeline and look at what happened; resume to carry on">&#9632; Stop recording</button>
+      <button type="button" class="btn clear-btn" id="btn-clear" title="Throw away all recorded incidents, log events, findings and the heatmap">Clear</button>
+      <label class="field inline" title="Rolling window: anything older than this is dropped">Keep last
         <select id="tl-window">
           <option value="60">1 min</option>
-          <option value="300" selected>5 min</option>
-          <option value="900">15 min</option>
+          <option value="300">5 min</option>
+          <option value="900" selected>15 min</option>
+          <option value="1800">30 min</option>
           <option value="3600">1 hour</option>
         </select>
       </label>
     </div>
     <div class="timeline" id="timeline"></div>
-    <p class="panel-foot">Click an incident to see its evidence and where it happened. Scroll with Shift or Ctrl to zoom.</p>
+    <p class="panel-foot"><span id="rec-note" class="rec-note" hidden></span>Click an incident to see its evidence and where it happened. Scroll with Shift or Ctrl to zoom. Anything older than the chosen window is dropped.</p>
   </section>
 
   <section class="panel log-panel" aria-label="Driver log">
     <div class="panel-head">
-      <h2>Driver log</h2>
-      <label class="field inline">Device <select id="log-device"><option value="*">All devices</option></select></label>
-      <label class="field inline">Kind <select id="log-kind"><option value="*">All kinds</option></select></label>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab" role="tab" id="tab-log" aria-selected="true">Driver log</button>
+        <button type="button" class="tab" role="tab" id="tab-range" aria-selected="false" title="Jitter and tracking loss against distance to the base stations">Range</button>
+      </div>
+      <label class="field inline log-only">Device <select id="log-device"><option value="*">All devices</option></select></label>
+      <label class="field inline log-only">Kind <select id="log-kind"><option value="*">All kinds</option></select></label>
+      <label class="field inline range-only">Show <select id="range-view-select"><option value="jitter">Jitter</option><option value="loss">Tracking loss</option></select></label>
     </div>
     <ul class="log" id="log"></ul>
+    <div class="range-view" id="range-view" hidden></div>
   </section>
 </main>
 

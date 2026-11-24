@@ -4,6 +4,7 @@ import { createTransport } from './transport.js';
 import { RoomView, rampCSS } from './scene.js';
 import { DeviceCards, LogTail, renderFindings, renderIncidentDetail, showTip, hideTip } from './panels.js';
 import { Timeline } from './timeline.js';
+import { RangeChart } from './range.js';
 import { METRICS, kindInfo, fmtClock, fmtDuration, h } from './util.js';
 
 const $ = (id) => document.getElementById(id);
@@ -24,6 +25,9 @@ const S = {
   log: [],                     // newest first
   findings: [],
   selected: null,
+  recording: true,
+  pausedAt: null,           // server time at which recording was stopped
+  windowS: 900,             // rolling window: older incidents and log lines are dropped
   metric: 'dropout',
   heatSerial: '',
 };
@@ -74,7 +78,9 @@ tx.onStatus = (st) => {
 };
 tx.onMessage = (msg) => {
   switch (msg.type) {
-    case 'hello': S.session = msg.session; if (msg.session && S.steamvr == null) S.steamvr = !!msg.session.steamvr; renderHeader(); renderOverlay(); break;
+    case 'hello': applySession(msg.session); if (msg.session && S.steamvr == null) S.steamvr = !!msg.session.steamvr; renderHeader(); renderOverlay(); break;
+    case 'session': applySession(msg.session); renderHeader(); drawTimeline(); break;
+    case 'cleared': clearLocal(); break;
     case 'state': onState(msg); break;
     case 'incident': addIncidents([msg.incident]); break;
     case 'log': addLog([msg.event]); break;
@@ -87,7 +93,7 @@ async function backfill() {
   const get = (path) => tx.getJSON(path).catch(() => null);
   const [session, inc, log, findings] = await Promise.all([
     get('/api/session'), get('/api/incidents?limit=200'), get('/api/log?limit=300'), get('/api/findings')]);
-  if (session) { S.session = session; if (S.steamvr == null) S.steamvr = !!session.steamvr; }
+  if (session) { applySession(session); if (S.steamvr == null) S.steamvr = !!session.steamvr; }
   if (inc?.incidents) addIncidents(inc.incidents);
   if (log?.events) addLog(log.events);
   if (findings?.findings) { S.findings = findings.findings; }
@@ -136,6 +142,63 @@ function addIncidents(list) {
   room.setIncidents(S.incidents.slice(0, 80));
   drawTimeline();
   if (!S.findings.length) drawFindings();
+}
+
+// ------------------------------------------------- recording controls
+function applySession(session) {
+  if (!session) return;
+  S.session = session;
+  S.recording = session.recording !== false;
+  S.pausedAt = session.paused_at ?? null;
+  room.setPlayArea(session.play_area || null);
+  if (session.window_s) {
+    S.windowS = Number(session.window_s);
+    const sel = $('tl-window');
+    if (![...sel.options].some((o) => Number(o.value) === S.windowS)) {
+      sel.append(h('option', { value: String(S.windowS) }, fmtDuration(Math.round(S.windowS))));
+    }
+    sel.value = String(S.windowS);
+    timeline.setWindow(S.windowS);
+  }
+  renderRecording();
+}
+
+function renderRecording() {
+  const b = $('btn-rec');
+  b.setAttribute('aria-pressed', String(S.recording));
+  b.textContent = S.recording ? '\u25A0 Stop recording' : '\u25CF Resume recording';
+  document.body.classList.toggle('is-stopped', !S.recording);
+  const note = $('rec-note');
+  note.hidden = S.recording;
+  note.textContent = S.recording ? '' : `Recording stopped${S.pausedAt ? ' at ' + fmtClock(S.pausedAt) : ''}: the timeline is frozen and nothing new is being added. `;
+}
+
+function clearLocal() {
+  S.incidents = []; S.incidentIds.clear(); S.log = []; S.findings = [];
+  selectIncident(null);
+  room.setIncidents([]);
+  logTail.setEvents(S.log);
+  drawFindings(); drawTimeline(); renderHeader(); loadHeatmap();
+}
+
+// Drop what has fallen out of the rolling window (the backend does the same).
+function pruneWindow() {
+  if (!S.recording || !S.everState) return;
+  const cutoff = S.serverNow - S.windowS;
+  const ni = S.incidents.length, nl = S.log.length;
+  S.incidents = S.incidents.filter((i) => i.t_end >= cutoff);
+  S.log = S.log.filter((e) => e.t >= cutoff);
+  if (S.incidents.length !== ni) {
+    S.incidentIds = new Set(S.incidents.map((i) => i.id));
+    if (S.selected && !S.incidentIds.has(S.selected.id)) selectIncident(null);
+    room.setIncidents(S.incidents.slice(0, 80));
+  }
+  if (S.log.length !== nl) logTail.setEvents(S.log);
+}
+
+async function control(body) {
+  try { applySession(await tx.postJSON('/api/control', body)); renderHeader(); drawTimeline(); }
+  catch (e) { console.error('control failed', e); }
 }
 
 function addLog(list) {
@@ -216,7 +279,8 @@ function drawTimeline() {
     timeline.setData({
       lanes: S.devices.map((d) => ({ serial: d.serial, label: nameOf(d.serial) })),
       incidents: S.incidents, log: S.log,
-      now: S.conn.state === 'open' && S.everState ? S.serverNow : Date.now() / 1000,
+      now: !S.recording && S.pausedAt ? S.pausedAt
+        : S.conn.state === 'open' && S.everState ? S.serverNow : Date.now() / 1000,
       selectedId: S.selected ? S.selected.id : null,
     });
     timeline.render();
@@ -248,6 +312,7 @@ function syncDeviceOptions() {
 let lastHeat = null, heatSeq = 0, sliceTouched = false;
 
 async function loadHeatmap() {
+  room.setSelectedDevice(S.heatSerial);
   if (S.conn.state !== 'open') return;
   const seq = ++heatSeq;
   const metric = S.metric;
@@ -329,7 +394,25 @@ for (const b of document.querySelectorAll('.toggle[data-layer]')) {
   });
 }
 $('btn-reset').addEventListener('click', () => room.resetView());
-$('tl-window').addEventListener('change', (e) => timeline.setWindow(Number(e.target.value)));
+$('tl-window').addEventListener('change', (e) => {
+  const sec = Number(e.target.value);
+  S.windowS = sec;
+  timeline.setWindow(sec);
+  control({ window_s: sec });
+});
+$('btn-rec').addEventListener('click', () => control({ action: S.recording ? 'stop' : 'resume' }));
+{
+  // Clear needs a second click within 3 s; a modal confirm is awkward on a VR overlay.
+  const b = $('btn-clear');
+  let armed = 0;
+  const disarm = () => { clearTimeout(armed); armed = 0; b.textContent = 'Clear'; b.classList.remove('is-armed'); };
+  b.addEventListener('click', () => {
+    if (armed) { disarm(); control({ action: 'clear' }); return; }
+    b.textContent = 'Click again to clear';
+    b.classList.add('is-armed');
+    armed = setTimeout(disarm, 3000);
+  });
+}
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && S.selected) selectIncident(null); });
 
 // URL presets, handy for kiosk / overlay use: ?metric=coverage&top=1&slice=0-0.4
@@ -344,7 +427,29 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && S.select
 
 // ------------------------------------------------------------------ timers
 setInterval(loadHeatmap, HEATMAP_EVERY_MS);
-setInterval(() => { renderHeader(); renderOverlay(); drawTimeline(); }, 1000);
+
+// ------------------------------------------------------------- range tab
+const rangeChart = new RangeChart($('range-view'), { nameOf });
+let rangeOpen = false;
+async function loadRange() {
+  if (!rangeOpen || S.conn.state !== 'open') return;
+  try { rangeChart.setData(await tx.getJSON('/api/range')); } catch { /* keep the last chart */ }
+}
+function showTab(range) {
+  rangeOpen = range;
+  $('tab-log').setAttribute('aria-selected', String(!range));
+  $('tab-range').setAttribute('aria-selected', String(range));
+  $('log').hidden = range;
+  $('range-view').hidden = !range;
+  document.querySelector('.log-panel').classList.toggle('show-range', range);
+  if (range) { rangeChart.render(); loadRange(); }
+}
+$('tab-log').addEventListener('click', () => showTab(false));
+$('tab-range').addEventListener('click', () => showTab(true));
+$('range-view-select').addEventListener('change', (e) => rangeChart.setView(e.target.value));
+setInterval(loadRange, 4000);
+if (new URLSearchParams(location.search).get('tab') === 'range') showTab(true);
+setInterval(() => { pruneWindow(); renderHeader(); renderOverlay(); drawTimeline(); }, 1000);
 
 renderHeader();
 renderOverlay();
@@ -354,4 +459,4 @@ drawTimeline();
 tx.start();
 
 // Debug handle for the console; not used by the app itself.
-window.lhdebug = { state: S, room, selectIncident, transport: tx };
+window.lhdebug = { state: S, room, selectIncident, transport: tx, showTab };

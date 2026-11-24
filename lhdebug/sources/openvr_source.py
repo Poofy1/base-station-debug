@@ -5,6 +5,7 @@ source retries quietly; when SteamVR quits we let go and wait for it to return.
 """
 from __future__ import annotations
 
+import ctypes
 import math
 import time
 
@@ -51,6 +52,7 @@ class OpenVRSource:
         self._next_props = 0.0
         self._next_retry = 0.0
         self.last_error = ""
+        self._play_area: dict | None = None
 
     # ---- connection ----------------------------------------------------
     @property
@@ -164,6 +166,33 @@ class OpenVRSource:
                 info.connected = False
                 info.index = -1
 
+    def _refresh_play_area(self) -> None:
+        """SteamVR's room setup: the rectangular play area and the drawn chaperone outline."""
+        area: dict = {}
+        try:
+            ok, quad = self.vr.VRChaperone().getPlayAreaRect()
+            if ok:
+                area["rect"] = [[quad.vCorners[i].v[j] for j in range(3)] for i in range(4)]
+        except Exception:
+            pass
+        try:
+            # the pyopenvr wrapper only returns one quad; call the table directly
+            fn = self.vr.VRChaperoneSetup().function_table.getLiveCollisionBoundsInfo
+            n = ctypes.c_uint32(0)
+            fn(None, ctypes.byref(n))
+            if 0 < n.value <= 256:
+                quads = (self.vr.HmdQuad_t * n.value)()
+                if fn(quads, ctypes.byref(n)):
+                    # each quad is one wall segment; its first corner is on the floor
+                    area["bounds"] = [[q.vCorners[0].v[j] for j in range(3)] for q in quads[:n.value]]
+                    area["height"] = max(q.vCorners[1].v[1] for q in quads[:n.value])
+        except Exception:
+            pass
+        self._play_area = area or None
+
+    def play_area(self) -> dict | None:
+        return self._play_area
+
     # ---- Source protocol -----------------------------------------------
     def read(self) -> Frame | None:
         if self.sys is None and not self._connect():
@@ -184,6 +213,7 @@ class OpenVRSource:
             if mono >= self._next_props:
                 self._next_props = mono + PROPS_EVERY_S
                 self._refresh_devices()
+                self._refresh_play_area()
             self.sys.getDeviceToAbsoluteTrackingPose(self.vr.TrackingUniverseStanding, 0.0, self._poses)
             t = time.time()
         except self.vr.OpenVRError as e:

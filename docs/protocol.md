@@ -89,9 +89,11 @@ Server listens on `http://127.0.0.1:8777`. Static dashboard at `/`.
 | Route | Returns |
 |---|---|
 | `GET /api/session` | `{"id", "mode": "live"\|"sim"\|"replay", "started", "steamvr": bool, "voxel"}` |
+| `POST /api/control` | body `{"action": "stop"}`, `"resume"` or `"clear"`, and/or `{"window_s": 900}`; returns the session object (which also carries `recording`, `paused_at`, `window_s`) |
 | `GET /api/heatmap?metric=&serial=` | heatmap snapshot (shape above); `metric=coverage` for predicted coverage |
 | `GET /api/incidents?limit=200` | `{"incidents": [Incident…]}` newest first |
 | `GET /api/log?limit=300` | `{"events": [LogEvent…]}` newest first |
+| `GET /api/range` | tracking quality by distance to base: `{"bin": 0.5, "nearest_key": "nearest", "warn_m": 5.0, "series": {"<base serial>" or "nearest": [{"d": metres, "n", "jitter_mm", "ok_frac"}]}}` |
 | `GET /api/findings` | `{"findings": [Finding…]}` ranked |
 | `GET /api/lighthousedb` | `LighthouseDB.summary()` |
 | `GET /api/sessions` | `{"sessions": [{"id", "mode", "started", "size"}]}` |
@@ -122,5 +124,20 @@ Server → client JSON messages, each with a `type`:
 {"type": "log", "event": {/* LogEvent */}}
 {"type": "findings", "findings": [/* Finding… */]}      // every ~5 s
 ```
+
+Recording controls:
+
+```jsonc
+{"type": "session", "session": {/* ... */}}   // recording stopped/resumed or window changed
+{"type": "cleared"}                           // drop all incidents, log, findings, heatmap
+```
+
+Recording is a rolling window: incidents, log events and stored samples older than
+`window_s` are dropped. While recording is stopped the buffer is frozen (nothing added,
+nothing dropped); `state` messages keep flowing with `"recording": false`.
+
+The session object also carries `play_area`: `null`, or
+`{"rect": [[x, y, z] x4], "bounds": [[x, y, z], ...], "height": metres}` - SteamVR's
+rectangular play area and the drawn chaperone outline (floor polygon), both optional.
 
 Enums are sent as their string values. Incident `causes` is `{cause: confidence}`.

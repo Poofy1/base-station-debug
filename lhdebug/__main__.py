@@ -43,7 +43,20 @@ def cmd_run(args) -> int:
     from .store import Store
 
     store = None if args.no_record else Store.new_session(args.sessions, "live")
-    engine = Engine(OpenVRSource(rate=args.rate), log_source=LogTailer(), store=store, mode="live")
+    tailer = LogTailer()
+    engine = Engine(OpenVRSource(rate=args.rate), log_source=tailer, store=store, mode="live")
+    # Replay what the driver already logged this SteamVR run so we know which bases
+    # each device sees and which dongle it is on. Context only: none of it is shown
+    # as new events.
+    try:
+        from .logtail import scan_file
+        from .model import LogKind
+        events = scan_file(tailer.path)
+        starts = [i for i, ev in enumerate(events) if ev.kind is LogKind.SERVER_START]
+        for ev in events[starts[-1] if starts else 0:]:
+            engine.world.add_log(ev)
+    except Exception as e:      # no log yet, unreadable: carry on without history
+        print(f"(could not preload the SteamVR log: {e})")
     print("waiting for SteamVR (this never launches it)...")
     return _serve(engine, args)
 

@@ -32,9 +32,20 @@ desktop or in-headset through any desktop-window overlay.
 
 Options (after the command): `--port 8777`, `--rate 200`, `--open`, `--no-record` (run), `--clean` / `--record` (simulate).
 
-Recordings go to `sessions/` as SQLite files: 10 Hz for the whole session plus
-full-rate bursts around each incident. Expect tens of MB per hour, more when many
-incidents fire.
+## Recording controls
+
+Recording is a rolling window (15 minutes by default). Anything older is dropped,
+both on screen and on disk. The controls are in the Timeline header:
+
+- **Keep last** — the window length (1 min to 1 hour).
+- **Stop recording** — freezes the timeline, log, findings and heatmap so you can
+  look at what just happened. Device cards and the 3D view stay live. **Resume
+  recording** carries on; nothing that happened while stopped is added.
+- **Clear** — click twice to throw away all recorded incidents, log events, findings
+  and the heatmap.
+
+The window is kept in `sessions/` as a SQLite file: 10 Hz samples plus full-rate
+bursts around each incident. `run.bat report` prints what is in the latest one.
 
 ## What it detects
 

@@ -49,6 +49,12 @@ class RealTransport {
     this._timer = setTimeout(() => this._connect(), wait);
   }
 
+  async postJSON(path, body) {
+    const r = await fetch(path, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
+    return r.json();
+  }
+
   async getJSON(path) {
     const r = await fetch(path, { cache: 'no-store' });
     if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);

@@ -6,7 +6,7 @@
 
 import * as THREE from 'three';
 import { OrbitControls } from './vendor/OrbitControls.js';
-import { STATES, GROUPS, kindInfo, trackingState, h, clamp } from './util.js';
+import { STATES, GROUPS, kindInfo, trackingState, h, clamp, dist3, rangeLevel } from './util.js';
 
 // Sequential ramp, one hue. On the dark surface the low end recedes (dark) and the
 // high end is bright.
@@ -32,7 +32,7 @@ export class RoomView {
     this.devices = new Map();
     this.bases = new Map();
     this.labels = [];             // {el, pos: Vector3 | () => Vector3, visible: () => bool}
-    this.layers = { heatmap: true, fov: true, trails: true, incidents: true };
+    this.layers = { heatmap: true, fov: true, trails: true, incidents: true, range: true };
     this.slice = [0, 10];
     this.heat = null;
     this.gridHalf = 0;
@@ -88,6 +88,15 @@ export class RoomView {
     this.highlight = this._makeHighlight();
     this.scene.add(this.gridGroup, this.baseGroup, this.deviceGroup, this.incidentGroup, this.highlight.group);
 
+    // range lines: device -> nearest base (all bases for the selected device)
+    this.rangeGeom = new THREE.BufferGeometry();
+    this.rangeLines = new THREE.LineSegments(this.rangeGeom,
+      new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.8 }));
+    this.rangeLines.frustumCulled = false;
+    this.scene.add(this.rangeLines);
+    this.rangeLabels = [];
+    this.selectedDevice = '';
+
     // heatmap: one InstancedMesh, capacity grown on demand
     this.heatGeom = new THREE.BoxGeometry(1, 1, 1);
     this.heatMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
@@ -110,6 +119,7 @@ export class RoomView {
     if (!this.ok) return;
     if (name === 'heatmap' && this.heatMesh) this.heatMesh.visible = on;
     if (name === 'incidents') this.incidentGroup.visible = on;
+    if (name === 'range') { this.rangeLines.visible = on; if (!on) for (const r of this.rangeLabels) r.l.el.hidden = true; }
     if (name === 'fov') for (const b of this.bases.values()) b.fov.visible = on;
     if (name === 'trails') for (const d of this.devices.values()) d.trail.visible = on;
   }
@@ -121,6 +131,41 @@ export class RoomView {
     this.orbit.enabled = !on;
     this.pan.enabled = on;
     this._resize();
+  }
+
+  /** Device whose distance to every base is drawn ('' = nearest base only, for all). */
+  setSelectedDevice(serial) { this.selectedDevice = serial || ''; }
+
+  _updateRange(devices, bases) {
+    if (!this.ok) return;
+    const live = (bases || []).filter((b) => b.valid !== false && b.connected !== false);
+    const pts = [], cols = [], c = new THREE.Color();
+    let used = 0;
+    for (const d of devices || []) {
+      if (!d.connected || !live.length) continue;
+      const ranked = live.map((b) => ({ b, m: dist3(d.pos, b.pos) })).sort((a, z) => a.m - z.m);
+      const sel = d.serial === this.selectedDevice;
+      for (const { b, m } of sel ? ranked : ranked.slice(0, 1)) {
+        pts.push(d.pos[0], d.pos[1], d.pos[2], b.pos[0], b.pos[1], b.pos[2]);
+        const level = rangeLevel(m);
+        c.set(level === 'far' ? 0xff6b5e : level === 'warn' ? 0xfab219 : sel ? 0xc9c8c0 : 0x6b7078);
+        cols.push(c.r, c.g, c.b, c.r, c.g, c.b);
+        if (!sel) continue;
+        let r = this.rangeLabels[used];
+        if (!r) {
+          const vec = new THREE.Vector3();
+          r = this.rangeLabels[used] = { vec, l: this._addLabel('range', vec) };
+        }
+        used++;
+        r.vec.set((d.pos[0] + b.pos[0]) / 2, (d.pos[1] + b.pos[1]) / 2, (d.pos[2] + b.pos[2]) / 2);
+        r.l.el.textContent = `${m.toFixed(1)} m`;
+        r.l.el.dataset.range = level;
+        r.l.el.hidden = !this.layers.range;
+      }
+    }
+    for (let i = used; i < this.rangeLabels.length; i++) this.rangeLabels[i].l.el.hidden = true;
+    this.rangeGeom.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+    this.rangeGeom.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
   }
 
   resetView() {
@@ -180,7 +225,9 @@ export class RoomView {
         o.label.el.dataset.state = state;
         o.icon.textContent = st.icon;
       }
-      const text = (d.label || d.serial) + (state === 'ok' ? '' : ' · ' + (d.incident ? kindInfo(d.incident).label : STATES[state].label));
+      const liveBases = (bases || []).filter((b) => b.valid !== false && b.connected !== false);
+      const near = d.connected && liveBases.length ? Math.min(...liveBases.map((b) => dist3(d.pos, b.pos))) : null;
+      const text = (d.label || d.serial) + (near == null || !this.layers.range ? '' : `  ${near.toFixed(1)} m`) + (state === 'ok' ? '' : ' · ' + (d.incident ? kindInfo(d.incident).label : STATES[state].label));
       if (o.text !== text) { o.text = text; o.name.textContent = text; }
       extent = Math.max(extent, Math.abs(d.pos[0]), Math.abs(d.pos[2]));
     }
@@ -188,6 +235,7 @@ export class RoomView {
       if (seenD.has(serial)) continue;
       this._dropLabel(o.label); this.deviceGroup.remove(o.mesh, o.trail); this.devices.delete(serial);
     }
+    this._updateRange(devices, bases);
     const half = clamp(Math.ceil(extent + 0.4), 3, 10);
     if (half > this.gridHalf) this._setGrid(half);
   }
@@ -338,6 +386,50 @@ export class RoomView {
     for (let i = 0; i < o.pts.length; i++) attr.setXYZ(i, o.pts[i][0], o.pts[i][1], o.pts[i][2]);
     attr.needsUpdate = true;
     o.trail.geometry.setDrawRange(0, o.pts.length);
+  }
+
+  /** SteamVR room setup: chaperone outline (solid) and rectangular play area (dashed). */
+  setPlayArea(area) {
+    if (!this.ok) return;
+    const key = JSON.stringify(area || null);
+    if (key === this._playKey) return;
+    this._playKey = key;
+    if (this.playGroup) {
+      this.scene.remove(this.playGroup);
+      this.playGroup.traverse((o) => { o.geometry?.dispose(); o.material?.dispose(); });
+      this.playGroup = null;
+    }
+    if (this.playLabel) { this._dropLabel(this.playLabel); this.playLabel = null; }
+    if (!area) return;
+    const g = this.playGroup = new THREE.Group();
+    const loop = (pts, y) => new THREE.BufferGeometry().setFromPoints(
+      [...pts, pts[0]].map((p) => new THREE.Vector3(p[0], y, p[2])));
+    const COLOR = 0x35d0b0;
+    if (area.bounds?.length >= 3) {
+      g.add(new THREE.Line(loop(area.bounds, 0.012), new THREE.LineBasicMaterial({ color: COLOR })));
+      const shape = new THREE.Shape(area.bounds.map((p) => new THREE.Vector2(p[0], p[2])));
+      const fill = new THREE.Mesh(new THREE.ShapeGeometry(shape),
+        new THREE.MeshBasicMaterial({ color: COLOR, transparent: true, opacity: 0.06, side: THREE.DoubleSide, depthWrite: false }));
+      fill.rotation.x = Math.PI / 2;      // shape (x, y) -> floor (x, z)
+      fill.position.y = 0.006;
+      g.add(fill);
+    }
+    let anchor = area.bounds?.[0];
+    if (area.rect?.length === 4) {
+      const line = new THREE.Line(loop(area.rect, 0.014),
+        new THREE.LineDashedMaterial({ color: COLOR, dashSize: 0.12, gapSize: 0.08, transparent: true, opacity: 0.8 }));
+      line.computeLineDistances();
+      g.add(line);
+      const xs = area.rect.map((p) => p[0]), zs = area.rect.map((p) => p[2]);
+      const w = Math.max(...xs) - Math.min(...xs), d = Math.max(...zs) - Math.min(...zs);
+      anchor = [Math.min(...xs), 0, Math.max(...zs)];
+      this.playLabel = this._addLabel('play', new THREE.Vector3(anchor[0], 0.02, anchor[2]));
+      this.playLabel.el.textContent = `play area ${w.toFixed(1)} \u00d7 ${d.toFixed(1)} m`;
+    } else if (anchor) {
+      this.playLabel = this._addLabel('play', new THREE.Vector3(anchor[0], 0.02, anchor[2]));
+      this.playLabel.el.textContent = 'chaperone bounds';
+    }
+    this.scene.add(g);
   }
 
   _makeHighlight() {
